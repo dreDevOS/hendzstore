@@ -11,7 +11,9 @@ import {UserComponent} from './user/user.component';
 import {SignInComponent} from './user/sign-in/sign-in.component';
 import {SignUpComponent} from './user/sign-up/sign-up.component';
 import { AppRoutingModule } from './app-routing.module';
-  
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
+
 
 
 
@@ -25,11 +27,14 @@ import { AppRoutingModule } from './app-routing.module';
     CartComponent,
     UserComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+      StoreModule,
+     StoreDevtoolsModule
   ],
   providers: [CartService],
   bootstrap: [AppComponent]
