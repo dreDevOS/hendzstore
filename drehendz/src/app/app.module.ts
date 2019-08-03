@@ -13,6 +13,8 @@ import {SignUpComponent} from './user/sign-up/sign-up.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -28,6 +30,8 @@ import { StoreModule } from '@ngrx/store';
     UserComponent,
     SignInComponent,
     SignUpComponent,
+    AboutComponent,
+    HomeComponent,
     
   ],
   imports: [

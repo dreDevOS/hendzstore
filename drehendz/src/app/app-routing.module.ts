@@ -9,6 +9,8 @@ import { CartComponent } from './products/cart/cart.component';
 import { UserComponent } from './user/user.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
 
@@ -20,6 +22,13 @@ const routes: Routes = [
     {path: 'signin', component:SignInComponent},
     {path: 'signup', component: SignUpComponent}
 ]
+}, 
+{
+  path: 'about', component: AboutComponent
+},
+
+{
+  path: 'home', component: HomeComponent
 },
   
   {path: 'products', component:ProductsComponent, children: 
