@@ -11,8 +11,5 @@ export class CartService {
   constructor(  )
    { }
 
-   add(product: ProductModel, qty: number) : void 
-   {let cartIndex = this.getCartIndex(product); 
-     if (cartIndex >=0) {this.incrementCartQty(cartIndex);
-    this.store.dispatch({type: UPDATE_CART, payload: {cart: this.carts}})} }
+   
 }
