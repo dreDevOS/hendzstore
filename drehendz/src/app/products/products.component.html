@@ -1,3 +1,54 @@
-<p>products works!</p>
+
+<div class="card">
+<div class="card-header">
+
+
+<div class="row">
+<div class="col-md-6"> <span>Products</span> 
+</div>
+<div class="col-md-6"><input placeholder="Search..."></div>
+</div>
+
+
+</div>
+
+<div class="card-body">
+    <div class="text-center"> <p class="lead" *ngIf="loading">Loading</p>   </div>
+
+    <div class="text-center" *ngIf="productLists.length==0">
+            <p>No record found! Are you kidding me? =)</p>
+        </div>
+
+
+
+  <ul>
+   <li class=" item">
+
+      <div class="card">
+       <img class="card-img-top" src="rhinestone1.jpg/iClouddrive/Desktop" >
+       <div class="card-body">
+           
+       <h5 class="card-title">  {{item.name}}  </h5>
+       <p class="card-text">Price: {{item.price | currency: 'JMD':'code'}}  </p>
+       </div>
+
+       <div class="card-body">
+        <button type="button" class="btn btn-success"> Add to cart </button>      
+    </div>
+
+      </div>
+
+
+
+
+   </li>
+
+  </ul>
+
+
+</div>
+
+
+</div>
 <router-outlet></router-outlet>
 
