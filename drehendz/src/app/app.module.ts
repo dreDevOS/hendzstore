@@ -38,6 +38,7 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
       StoreModule,
+      
      StoreDevtoolsModule
   ],
   providers: [CartService],

@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/angular-redux-store-testing.umd.js",
+  "module": "../fesm5/angular-redux-store-testing.js",
+  "es2015": "../fesm2015/angular-redux-store-testing.js",
+  "esm5": "../esm5/testing/angular-redux-store-testing.js",
+  "esm2015": "../esm2015/testing/angular-redux-store-testing.js",
+  "fesm5": "../fesm5/angular-redux-store-testing.js",
+  "fesm2015": "../fesm2015/angular-redux-store-testing.js",
+  "typings": "angular-redux-store-testing.d.ts",
+  "metadata": "angular-redux-store-testing.metadata.json",
+  "sideEffects": false,
+  "name": "@angular-redux/store/testing"
+}
