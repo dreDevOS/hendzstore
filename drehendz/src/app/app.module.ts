@@ -15,6 +15,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
+import { FeatureProductComponent } from './products/feature-product/feature-product.component';
 
 
 
@@ -32,6 +33,7 @@ import { HomeComponent } from './home/home.component';
     SignUpComponent,
     AboutComponent,
     HomeComponent,
+    FeatureProductComponent,
     
   ],
   imports: [
