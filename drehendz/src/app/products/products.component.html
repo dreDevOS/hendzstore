@@ -12,51 +12,74 @@
 
 </div>
 
-<div class="card-body">
-    <div class="text-center"> <p class="lead" *ngIf="loading">Loading</p>   </div>
+<br>
+<div class="container">
+<div class="row" *ngIf="authService.isAdmin()">
+<div class="col-sm">
+<div class="float-right">
+  <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#exampleModalLong">
+    Add Products
+  </button>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <div class="form-group">  
+      <label for="brand_select">Catergories:</label>
+     </div>
+     <ul class="list-group">
+       <li class="list-group-item">Beachwear</li>
+       <li class="list-group-item">Mobile device</li>
+       <li class="list-group-item">Apparel</li>
+     </ul>
+  </div>
+ 
+<div class="conatiner">
+  <div class="col-sm-4 mb-2">
+  <div class="item">
+    <div class="card card-cascade wider">
+      <img src="../../assets/img/rhinestone1 resize.jpg" class="img-fluid" alt="" width="560px" height="640px">
+    
+      <a>
+          <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+        </a>
 
-    <div class="text-center" *ngIf="productLists.length==0">
-            <p>No record found! Are you kidding me? =)</p>
-        </div>
-
-
-
-  <ul>
-   <li class=" item">
-
-      <div class="card">
-       <img class="card-img-top" src="../../assets/img/rhinestone1 resize.jpg" >
-       <div class="card-body">
-           
-       <h5 class="card-title"> Mesh Rhinestone  </h5>
-       <p class="card-text">Price: $3000JMD </p>
-       </div>
-       <div class="card-body">
-        <button type="button" class="btn btn-success"> Add to cart </button>      
     </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="../../assets/img/low waist triangle .jpg">
-        <div class="card-body">
-          <h5 class="card-title">Low Waist Triangle</h5>
-          <p class="card-text">Price: $3500</p>
-        </div>
-        <div class="card-body">
-          <button type="button" class="btn btn-success">Add to cart</button>
-        </div>
-      </div>
+
+  </div>
 
 
-
-
-   </li>
-
-  </ul>
-
+  <div class="card-body text-center no-paddding">
+    <p class="card-title">
+     Rhinestone
+    </p>
+    <p class="card-text">mesh two piece rhinestones</p>
+  
+  <div class="card-footer">
+    <span class="left"> $3000JMD </span>
+    <span class="right">
+        <a placement="top" mdbTooltip="Add to Wishlist" container="body" (click)="addFavourite(product)">
+            <i class="fa fa-heart"></i>
+          </a>
+          <a placement="top" mdbTooltip="Add to Cart" container="body" (click)="addToCart(product)">
+              <i class="fa fa-shopping-cart"></i>
+            </a>
+            <a placement="top" mdbTooltip="Remove Product" container="body" *ngIf="authService.isAdmin()"
+                          (click)="removeProduct(product.$key)">
+                          <i class="fa fa-trash"></i>
+                        </a>
+    </span>
+  </div>
+  </div>
+  </div>
+</div>
 
 </div>
 
 
+
+</div>
 </div>
 <router-outlet></router-outlet>
 
