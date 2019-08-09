@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Products } from '../models/product';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+
+  productList: Products [];
+  loading = false;
+  catergories = ['All', 'Beachwear', 'Apparel', 'Mobile Device'];
+ 
+ 
+  selectedBrands: 'All';
+
+  page =1;
+
+  constructor
+  (
+    ) { }
 
   ngOnInit() {
+    
   }
+
+
+
+
 
 }
