@@ -16,8 +16,9 @@ import { StoreModule } from '@ngrx/store';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { FeatureProductComponent } from './products/feature-product/feature-product.component';
-
-
+import { AngularFireModule} from '@angular/fire';
+import { environment } from 'src/environments/environment.prod';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -40,8 +41,9 @@ import { FeatureProductComponent } from './products/feature-product/feature-prod
     BrowserModule,
     AppRoutingModule,
       StoreModule,
-      
-     StoreDevtoolsModule
+      AngularFireModule.initializeApp(environment),
+      AngularFirestoreModule,
+      StoreDevtoolsModule
   ],
   providers: [CartService],
   bootstrap: [AppComponent]
