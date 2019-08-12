@@ -16,10 +16,11 @@ import { StoreModule } from '@ngrx/store';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { FeatureProductComponent } from './products/feature-product/feature-product.component';
-import { AngularFireModule} from '@angular/fire';
+import { AngularFireModule} from 'angularfire2';
 import { environment } from 'src/environments/environment.prod';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from "@angular/fire/auth";
+import {HttpModule} from '@angular/http'
 
 var firebaseConfig = {
   apiKey: "AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc",
@@ -55,6 +56,7 @@ var firebaseConfig = {
       StoreModule,
       AngularFireModule.initializeApp(firebaseConfig),
       AngularFirestoreModule,
+       HttpModule,
 
       StoreDevtoolsModule
   ],
