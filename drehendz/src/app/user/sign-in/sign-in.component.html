@@ -11,7 +11,7 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control mb-2" placeholder="Email" #userEmail required autofocus >
                             <input type="password" class="form-control mb-2" placeholder="Password" #userPassword required>
-                            <button class="btn btn-lg btn-primary btn-bloc mb-1" (click)="authService.login(userEmail.value, userPassword.value)"  >Login</button>
+                            <button class="btn btn-lg btn-primary btn-bloc mb-1" (click) = "authService.login(userEmail.value, userPassword.value)">Login</button>
                         </div>
                     </div>
                 </div>

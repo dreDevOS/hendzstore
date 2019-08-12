@@ -24,6 +24,7 @@
     "@ngrx/store": "^8.2.0",
     "@ngrx/store-devtools": "^8.2.0",
     "@reactivex/rxjs": "^5.0.0-beta.1",
+    "angularfire2": "^5.2.1",
     "firebase": "^6.3.5",
     "g": "^2.0.1",
     "rxjs": "~6.4.0",
