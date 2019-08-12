@@ -1,0 +1,29 @@
+[debug] [2019-08-12T01:14:26.023Z] ----------------------------------------------------------------------
+[debug] [2019-08-12T01:14:26.032Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2019-08-12T01:14:26.033Z] CLI Version:   7.2.2
+[debug] [2019-08-12T01:14:26.033Z] Platform:      darwin
+[debug] [2019-08-12T01:14:26.033Z] Node Version:  v10.16.1
+[debug] [2019-08-12T01:14:26.036Z] Time:          Sun Aug 11 2019 20:14:26 GMT-0500 (Eastern Standard Time)
+[debug] [2019-08-12T01:14:26.036Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-12T01:14:26.064Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-12T01:14:26.065Z] > authorizing via signed-in user
+[debug] [2019-08-12T01:14:26.066Z] [iam] checking project drehendz for permissions ["firebase.projects.get"]
+[debug] [2019-08-12T01:14:26.072Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-08-12T01:14:26.073Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-08-12T01:14:26.656Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-12T01:14:26.760Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/drehendz:testIamPermissions  
+
+[debug] [2019-08-12T01:14:27.149Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-12T01:14:27.153Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/drehendz  
+ 
+[debug] [2019-08-12T01:14:27.601Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/drehendz/drehendz/drehendz'...
+[info] 
+[debug] [2019-08-12T01:14:27.609Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/drehendz/webApps/-/config  
+ 
+[debug] [2019-08-12T01:14:28.086Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000

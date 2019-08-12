@@ -1,1 +1,21 @@
-<p>sign-in works!</p>
+<div class="container pt-3">
+    <div class="row justify-content-sm-center">
+        <div class="col-sm-10 col-md-6">
+            <div class="card border-info">
+                <div class="card-header">Login</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img src="../../../assets/logo_img/drehendz logo.png">
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control mb-2" placeholder="Email" #userEmail required autofocus >
+                            <input type="password" class="form-control mb-2" placeholder="Password" #userPassword required>
+                            <button class="btn btn-lg btn-primary btn-bloc mb-1" (click)="authService.login(userEmail.value, userPassword.value)"  >Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

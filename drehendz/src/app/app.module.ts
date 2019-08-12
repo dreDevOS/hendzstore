@@ -19,6 +19,18 @@ import { FeatureProductComponent } from './products/feature-product/feature-prod
 import { AngularFireModule} from '@angular/fire';
 import { environment } from 'src/environments/environment.prod';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from "@angular/fire/auth";
+
+var firebaseConfig = {
+  apiKey: "AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc",
+  authDomain: "drehendz.firebaseapp.com",
+  databaseURL: "https://drehendz.firebaseio.com",
+  projectId: "drehendz",
+  storageBucket: "drehendz.appspot.com",
+  messagingSenderId: "715767442487",
+  appId: "1:715767442487:web:9f8a21fd027f3330"
+};
+
 
 
 @NgModule({
@@ -41,8 +53,9 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     BrowserModule,
     AppRoutingModule,
       StoreModule,
-      AngularFireModule.initializeApp(environment),
+      AngularFireModule.initializeApp(firebaseConfig),
       AngularFirestoreModule,
+
       StoreDevtoolsModule
   ],
   providers: [CartService],
