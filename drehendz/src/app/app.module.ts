@@ -20,9 +20,11 @@ import { AngularFireModule} from 'angularfire2';
 import { environment } from 'src/environments/environment.prod';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from "@angular/fire/auth";
-import {HttpModule} from '@angular/http'
+import {HttpModule} from '@angular/http';
+import {FormsModule} from '@angular/forms';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-var firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc",
   authDomain: "drehendz.firebaseapp.com",
   databaseURL: "https://drehendz.firebaseio.com",
@@ -56,8 +58,10 @@ var firebaseConfig = {
       StoreModule,
       AngularFireModule.initializeApp(firebaseConfig),
       AngularFirestoreModule,
+      AngularFireAuthModule,
+      AngularFireDatabaseModule,
        HttpModule,
-
+       FormsModule,
       StoreDevtoolsModule
   ],
   providers: [CartService],

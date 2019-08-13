@@ -25,11 +25,22 @@
    </nav>
 </header>
 <br />
+
+<div class="row-column">
+    <button (click)="login()" *ngIf = "!(user| async)?.uid ">Guest</button>
+  
+    <button (click)="logout()" *ngIf = "(user| async)?.uid ">Logout</button>
+    <input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" />
+    <p *ngFor="let item of items | async"><img src="../assets/logo_img/drehendz logo.png">{{item.message}}</p>
+</div>
+   
+
 <ul>
     <li class="text" *ngFor="let item of items | async">
       {{item.name}}
     </li>
   </ul>
+
 <router-outlet></router-outlet>
 <br />
 <footer class="border-top">
