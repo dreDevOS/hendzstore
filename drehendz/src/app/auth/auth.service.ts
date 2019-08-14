@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { User } from '../models/user';
 import { auth } from 'firebase';
+import { error } from 'util';
 
 
 
@@ -34,6 +35,18 @@ constructor(private afAuth: AngularFireAuth,
     }
   } ) )
 }
+
+
+
+
+  async facebookSignin()
+{
+  const provider = new auth.FacebookAuthProvider
+  const credential = await this.afAuth.auth.signInWithPopup(provider);
+  return this.updateUserData(credential.user);
+  }
+
+
 async googleSignin()
 {
   const provider = new auth.GoogleAuthProvider();
