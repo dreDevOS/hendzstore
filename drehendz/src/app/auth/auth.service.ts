@@ -3,7 +3,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 import 'rxjs/Rx';
-import { Observable, of} from 'rxjs';
+import { Observable, of, merge} from 'rxjs';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -55,9 +55,10 @@ private updateUserData(user)
     displayName: user.displayName,
     photoURL: user.photoURL
   };
-  return userRef
+  return userRef.set(data, {merge: true});
 
 }
+
 }
  
  
