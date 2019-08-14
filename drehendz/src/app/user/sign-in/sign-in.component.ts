@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import{AngularFireAuth} from 'angularfire2/auth';
-import { auth } from 'firebase';
+import {  AuthService } from 'src/app/auth/auth.service';
+
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -12,16 +12,10 @@ export class SignInComponent implements OnInit {
   state: string = '';
   error: any;
 
-  constructor(public af: AngularFireAuth, private router: Router) 
+  constructor(public auth: AuthService )
   {
-    this.af.auth.onAuthStateChanged(auth => 
-      
-      {
-        if(auth){this.router.navigateByUrl('/home');
-      }
-      });
-   }
 
+  }
    
 
   ngOnInit() {

@@ -23,7 +23,7 @@ import {AngularFireAuthModule} from "@angular/fire/auth";
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import {AuthGuard} from '../app/auth/auth.service';
+import {AuthService} from '../app/auth/auth.service';
 import {routes} from './app.routes';
 
 export const firebaseConfig = {
@@ -67,7 +67,7 @@ export const firebaseConfig = {
       StoreDevtoolsModule,
       routes
   ],
-  providers: [AuthGuard],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
