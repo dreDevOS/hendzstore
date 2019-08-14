@@ -23,6 +23,8 @@ import {AngularFireAuthModule} from "@angular/fire/auth";
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import {AuthGuard} from '../app/auth/auth.service';
+import {routes} from './app.routes';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc",
@@ -62,9 +64,10 @@ export const firebaseConfig = {
       AngularFireDatabaseModule,
        HttpModule,
        FormsModule,
-      StoreDevtoolsModule
+      StoreDevtoolsModule,
+      routes
   ],
-  providers: [CartService],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
