@@ -42,7 +42,7 @@ async googleSignin()
 }
 async signOut(){
   await this.afAuth.auth.signOut();
-  return this.router.navigate(['/home'])
+  return this.router.navigate(['/signin'])
 }
 private updateUserData(user)
 {
