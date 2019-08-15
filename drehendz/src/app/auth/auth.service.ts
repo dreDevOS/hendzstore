@@ -11,6 +11,8 @@ import { switchMap } from 'rxjs/operators';
 import { User } from '../models/user';
 import { auth } from 'firebase';
 import { error } from 'util';
+import * as firebase from "firebase/app";
+
 
 
 
@@ -68,7 +70,6 @@ private updateUserData(user)
     displayName: user.displayName,
     photoURL: user.photoURL
   };
-  return userRef.set(data, {merge: true});
 
 }
 
