@@ -12,6 +12,7 @@ import { User } from '../models/user';
 import { auth } from 'firebase';
 import { error } from 'util';
 import * as firebase from "firebase/app";
+import { UserService } from '../user/services/user.service';
 
 
 
@@ -21,25 +22,77 @@ import * as firebase from "firebase/app";
 
 
 @Injectable({providedIn: 'root'})
-export class AuthService{user$: Observable<any>;
+export class AuthService
+{user: Observable<firebase.User>;
+  userDetails: firebase.User = null;
+  loggedUser;
+  dbUser;
 
 constructor(private afAuth: AngularFireAuth,
   private afs: AngularFirestore,
-  private router: Router)
+  private router: Router,
+  private userService : UserService)
 {
-  this.user$ = this.afAuth.authState.pipe(switchMap(user => {
-    if (user) 
+  this.user = afAuth.authState;
+  this.dbUser = new User();
+  this.user.subscribe(user => 
     {
-      return this.afs.doc<User>('users/${user.uid}').valueChanges();
-    }
-    else{
-      return of(null);
-    }
-  } ) )
+      if(user) {
+        this.userDetails = user;
+        userService.isAdmin(this.userDetails.email)
+        .snapshotChanges()
+        .subscribe(data => {
+          data.forEach(el => {
+            const y = el.payload.toJSON();
+            this.dbUser = y;
+          });
+        });
+      } else {this.userDetails = null;}
+    });
+}
+isLoggedIn(): boolean {
+  if(this.userDetails !== null) 
+  {
+    return true;
+  }
 }
 
+createUserWithEmailAndPassword(emailID: string, password: string) 
+{
+  return this.afAuth.auth.createUserWithEmailAndPassword( emailID, password);
+}
 
+getLoggedInUser(): User {
+  const loggedUser: User = new User();
+  const user = this.afAuth.auth.currentUser;
+if(user) 
+{
+  this.userDetails = user;
+  if(user != null) 
+  {
+    loggedUser.$key = user.uid;
+    loggedUser .userName = user.displayName;
+    loggedUser.emailId = user.email;
+    loggedUser.phoneNumber = user.phoneNumber;
+    loggedUser.avatar = user.photoURL;
+    loggedUser.isAdmin = this.dbUser["isAdmin"];
 
+  }
+} else {this.userDetails = null;}
+return loggedUser;
+}
+
+isAdmin(): boolean { const user = this.getLoggedInUser();
+if (user !=null) {
+  if (user.isAdmin === true) {
+    return true;
+  }
+}
+}
+
+signInRegular(email, password) 
+{const credential =  firebase.auth.EmailAuthProvider.credential(email, password);
+return this.afAuth.auth.signInWithEmailAndPassword(email, password);}
 
   async facebookSignin()
 {

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './products.component';
 import { FeatureProductComponent } from './feature-product/feature-product.component';
 import { ProductRoutes } from './product.routing';
+import { AddProductComponent } from './add-product/add-product.component';
 
 
 
@@ -15,7 +16,8 @@ imports: [CommonModule, RouterModule.forChild(ProductRoutes) ],
 
 declarations: [
      ProductsComponent,
-     FeatureProductComponent
+     FeatureProductComponent,
+     AddProductComponent
     ],
 
 exports: [FeatureProductComponent]
