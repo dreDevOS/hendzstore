@@ -17,7 +17,6 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { FeatureProductComponent } from './products/feature-product/feature-product.component';
 import { AngularFireModule} from 'angularfire2';
-import { environment } from 'src/environments/environment.prod';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from "@angular/fire/auth";
 import {HttpModule} from '@angular/http';
@@ -25,7 +24,9 @@ import {FormsModule} from '@angular/forms';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AuthService} from '../app/auth/auth.service';
 import {routes} from './app.routes';
-
+import {environment} from '../environments/environment';
+import {AngularFirestore} from '@angular/fire/firestore';
+  import { from } from 'rxjs';
 export const firebaseConfig = {
   apiKey: "AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc",
   authDomain: "drehendz.firebaseapp.com",
@@ -58,7 +59,7 @@ export const firebaseConfig = {
     BrowserModule,
     AppRoutingModule,
       StoreModule,
-      AngularFireModule.initializeApp(firebaseConfig),
+      AngularFireModule.initializeApp(environment.firebase ),
       AngularFirestoreModule,
       AngularFireAuthModule,
       AngularFireDatabaseModule,

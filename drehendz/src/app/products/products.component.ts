@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Products } from '../models/product';
-
+import {AngularFirestore} from '@angular/fire/firestore';
+import{ Observable} from 'rxjs';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -8,19 +8,13 @@ import { Products } from '../models/product';
 })
 export class ProductsComponent implements OnInit {
 
+items: Observable<any[]>;
+  
 
-  productList: Products [];
-  loading = false;
-  catergories = ['All', 'Beachwear', 'Apparel', 'Mobile Device'];
- 
- 
-  selectedBrands: 'All';
-
-  page =1;
-
-  constructor
-  (
-    ) { }
+  constructor(db: AngularFirestore) 
+   {
+   this.items = db.collection('items').valueChanges();
+    }
 
   ngOnInit() {
     
