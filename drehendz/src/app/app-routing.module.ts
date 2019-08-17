@@ -11,6 +11,8 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
+import { CardComponent } from './products/card/card.component';
+import { CardListComponent } from './products/card-list/card-list.component';
 
 const routes: Routes = [
 
@@ -36,7 +38,10 @@ const routes: Routes = [
   
   {path: 'products', component:ProductsComponent, children: 
   [
-   {path: 'cart', component: CartComponent}
+   {path: 'cart', component: CartComponent},
+   {path: 'card', component:  CardComponent},
+   {path: 'card-list', component: CardListComponent}
+
   ]},
   
 {path: 'admin', component:AdminComponent, children:
