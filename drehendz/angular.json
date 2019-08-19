@@ -120,6 +120,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "drehendz"
+    }
+  },
+  "defaultProject": "drehendz",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
