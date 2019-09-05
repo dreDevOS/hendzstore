@@ -3,10 +3,20 @@ import {AngularFireList, AngularFireObject} from 'angularfire2/database';
 import {AngularFireDatabase} from 'angularfire2/database';
 import { Product } from '../product';
 import { AuthService } from 'src/app/auth/auth.service';
+import {throwError as ObservableThrowError, empty as ObservableEmpty, Observable } from 'rxjs';
 
+export interface Product 
+{
+    id: string;
+    catergoryId: string;
+    title: string;
+    price: number;
+    isSpecial: boolean;
+    desc: string;
+    imageS: string;
+    imageL: string;
 
-
-
+}
 
 
 @Injectable()
@@ -22,10 +32,22 @@ export class ProductService
               
           }
 
-          getProducts()
+          getProducts(catergory?: string, search?: string): Observable<any>
           {
-              this.products = this.db.list('products');
-              return this.products;
+              if (catergory || search)
+            {
+                let query = <any>{};
+                if(catergory)
+                {
+                    return 
+                    
+                }
+                else {}
+            }
+            else {return ObservableEmpty();
+            }
+            
+          
           }
-          createProduct(data: Product){this.products.push(data)}
+          
 }
