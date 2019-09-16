@@ -1,0 +1,43 @@
+@import "../../../assets/theme/color.scss";
+@import "../../../assets/theme/function.scss";
+
+
+.navbar {
+    top: 0;
+    background: var(--navBackground)
+}
+
+.color-container{
+    position: relative;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    margin: auto;
+    border-radius: 50;
+    overflow: hidden;
+
+    .colorDiv {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100;
+        height: 100;
+        box-sizing: border-box;
+        border-radius: 50;
+
+    }
+    .color-purple{
+        background: #666666
+    }
+    .color-red{
+        background: #444444
+    }
+    .color-blue{
+        background: #9c9c9c
+    }
+    .color-violet{
+     background: #7b7b7b
+    }
+
+}
+

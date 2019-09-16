@@ -13,8 +13,15 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { CardComponent } from './products/card/card.component';
 import { CardListComponent } from './products/card-list/card-list.component';
+import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
+
+  {path: '', children: 
+  [
+{path:'', component: IndexComponent}
+
+  ]},
 
   {path: '', component: UserComponent},
 

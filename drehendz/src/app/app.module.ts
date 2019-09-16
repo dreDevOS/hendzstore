@@ -29,6 +29,8 @@ import {AngularFirestore} from '@angular/fire/firestore';
   import { from } from 'rxjs';
   import{CardComponent} from '../app/products/card/card.component';
   import{CardListComponent} from '../app/products/card-list/card-list.component';
+import { IndexComponent } from './index/index.component';
+import { NavbarComponent } from './index/navbar/navbar.component';
 export const firebaseConfig = {
   apiKey: "AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc",
   authDomain: "drehendz.firebaseapp.com",
@@ -56,7 +58,9 @@ export const firebaseConfig = {
     HomeComponent,
     FeatureProductComponent,
     CardComponent,
-    CardListComponent
+    CardListComponent,
+    IndexComponent,
+    NavbarComponent
     
     
   ],
