@@ -20,7 +20,7 @@ import { AngularFireModule} from 'angularfire2';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from "@angular/fire/auth";
 import {HttpModule} from '@angular/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AuthService} from '../app/auth/auth.service';
 import {routes} from './app.routes';
@@ -31,6 +31,9 @@ import {AngularFirestore} from '@angular/fire/firestore';
   import{CardListComponent} from '../app/products/card-list/card-list.component';
 import { IndexComponent } from './index/index.component';
 import { NavbarComponent } from './index/navbar/navbar.component';
+import { IndexModule } from './index/index.module';
+import { FooterComponent } from './index/footer/footer.component';
+import { LoginComponent } from './index/login/login.component';
 export const firebaseConfig = {
   apiKey: "AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc",
   authDomain: "drehendz.firebaseapp.com",
@@ -60,7 +63,9 @@ export const firebaseConfig = {
     CardComponent,
     CardListComponent,
     IndexComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent,
+    LoginComponent
     
     
   ],
@@ -74,8 +79,10 @@ export const firebaseConfig = {
       AngularFireDatabaseModule,
        HttpModule,
        FormsModule,
+       ReactiveFormsModule,
       StoreDevtoolsModule,
-      routes
+      routes,
+      IndexModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

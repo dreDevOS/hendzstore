@@ -27,6 +27,7 @@ export class AuthService
   userDetails: firebase.User = null;
   loggedUser;
   dbUser;
+  logout: any;
 
 constructor(private afAuth: AngularFireAuth,
   private afs: AngularFirestore,
@@ -124,6 +125,12 @@ private updateUserData(user)
     photoURL: user.photoURL
   };
 
+}
+
+signInWithGoogle(){
+  return this.afAuth.auth.signInWithPopup(
+    new firebase.auth.GoogleAuthProvider()
+  );
 }
 
 }

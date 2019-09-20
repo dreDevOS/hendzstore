@@ -14,13 +14,14 @@ import { HomeComponent } from './home/home.component';
 import { CardComponent } from './products/card/card.component';
 import { CardListComponent } from './products/card-list/card-list.component';
 import { IndexComponent } from './index/index.component';
+import { LoginComponent } from './index/login/login.component';
 
 const routes: Routes = [
 
   {path: '', children: 
   [
-{path:'', component: IndexComponent}
-
+{path:'', component: IndexComponent},
+{path:"login", component: LoginComponent}
   ]},
 
   {path: '', component: UserComponent},
