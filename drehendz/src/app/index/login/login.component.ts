@@ -1,9 +1,9 @@
 import { Component, OnInit, ɵɵsanitizeUrlOrResourceUrl } from '@angular/core';
 import {NgForm, EmailValidator} from "@angular/forms";
 import { AuthService } from 'src/app/auth/auth.service';
-import { UserService } from 'src/app/user/services/user.service';
+import { UserService } from 'src/app/shared/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/user/user';
+import { User } from 'src/app/shared/models/user';
 import {ToastrService} from "../../shared/services/toastr.service";
 import { router } from 'src/app/app.routes';
 declare var $: any;

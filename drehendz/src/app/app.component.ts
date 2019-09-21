@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
-import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
-import {AngularFireAuth} from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './shared/services/user.service';
 
+declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -12,43 +10,37 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent 
 {
-  public cards: Array<any> = [
-    {text: 'Card 1'},
-    {text: 'Card 2'},
-    {text: 'Card 3'},
-    {text: 'Card 4'},
-    {text: 'Card 5'},
-    {text: 'Card 6'},
-    {text: 'Card 7'},
-    {text: 'Card 8'},
-    {text: 'Card 9'},
-    {text: 'Card 10'},
-  ];
-  
-user: Observable<firebase.User>;
-items: AngularFireList<any>;
-msgVal: string = '';
 
-constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase)
-{
-  this.items = af.list('/messages' );
-  this.user = this.afAuth.authState;
+  titile = "app";
+  
+constructor(private userService: UserService){}
+
+ngOnInit(){
+  $ (document).ready(function() {
+    $(".banner").owlCarousel({
+      autoHeight: true,
+      center: true,
+      nav: true,
+      items:1,
+      margin: 30,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true
+
+    });
+  } );
+  if (navigator.geolocation){navigator.geolocation.getCurrentPosition(this.setGeoLocation.bind (this) );
+  }
 }
 
-login()
-{
-  this.afAuth.auth.signInAnonymously();
+
+setGeoLocation(position: any){
+  this.userService.setLocation(
+    position["coords"] .latitude,
+    position["coords"].longitude
+  );
 }
   
-logout()
-{
-  this.afAuth.auth.signOut();
-}
-  
-Send(desc: string)
-{
-  this.items.push  ({message: desc})
-  this.msgVal = '';
-}
 
 }

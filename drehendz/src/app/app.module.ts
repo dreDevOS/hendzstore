@@ -7,7 +7,7 @@ import {AdminProductsComponent} from './admin/admin-products/admin-products.comp
 import {AdminUsersComponent} from './admin/admin-users/admin-users.component';
 import {ProductsComponent} from './products/products.component';
 import {CartComponent} from './products/cart/cart.component';
-import {UserComponent} from './user/user.component';
+import {UserComponent} from '../app/layouts/user/user.component';
 import {SignInComponent} from './user/sign-in/sign-in.component';
 import {SignUpComponent} from './user/sign-up/sign-up.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +34,17 @@ import { NavbarComponent } from './index/navbar/navbar.component';
 import { IndexModule } from './index/index.module';
 import { FooterComponent } from './index/footer/footer.component';
 import { LoginComponent } from './index/login/login.component';
+import { UserAccountComponent } from './layouts/user/user-account/user-account.component';
+import { AuthGuard } from './shared/services/auth_guard';
+import { ProductComponent } from './layouts/product/product.component';
+import { ProductListComponent } from './layouts/product/product-list/product-list.component';
+import { ProductDetailComponent } from './layouts/product/product-detail/product-detail.component';
+import { FavoriteProductsComponent } from './layouts/product/favorite-products/favorite-products.component';
+import { CheckoutComponent } from './layouts/product/checkout/checkout.component';
+import { CartProductsComponent } from './layouts/product/cart-products/cart-products.component';
+import { CartCalculatorComponent } from './layouts/product/cart-calculator/cart-calculator.component';
+import { BestProductComponent } from './layouts/product/best-product/best-product.component';
+import { AddProductComponent } from './layouts/product/add-product/add-product.component';
 export const firebaseConfig = {
   apiKey: "AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc",
   authDomain: "drehendz.firebaseapp.com",
@@ -65,7 +76,17 @@ export const firebaseConfig = {
     IndexComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    UserAccountComponent,
+    ProductComponent,
+    ProductListComponent,
+    ProductDetailComponent,
+    FavoriteProductsComponent,
+    CheckoutComponent,
+    CartProductsComponent,
+    CartCalculatorComponent,
+    BestProductComponent,
+    AddProductComponent
     
     
   ],
@@ -84,7 +105,7 @@ export const firebaseConfig = {
       routes,
       IndexModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

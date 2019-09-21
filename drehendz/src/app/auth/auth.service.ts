@@ -12,7 +12,7 @@ import { User } from '../models/user';
 import { auth } from 'firebase';
 import { error } from 'util';
 import * as firebase from "firebase/app";
-import { UserService } from '../user/services/user.service';
+import { UserService } from '../shared/services/user.service';
 
 
 
@@ -27,7 +27,6 @@ export class AuthService
   userDetails: firebase.User = null;
   loggedUser;
   dbUser;
-  logout: any;
 
 constructor(private afAuth: AngularFireAuth,
   private afs: AngularFirestore,
@@ -131,6 +130,11 @@ signInWithGoogle(){
   return this.afAuth.auth.signInWithPopup(
     new firebase.auth.GoogleAuthProvider()
   );
+}
+
+logout(){
+  this.loggedUser = null;
+  this.afAuth.auth.signOut().then(res =>this.router.navigate(["/"]) );
 }
 
 }

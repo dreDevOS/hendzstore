@@ -28,6 +28,7 @@
     "angularfire2": "^5.2.1",
     "firebase": "^6.3.5",
     "g": "^2.0.1",
+    "geofire": "^5.0.1",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.2",
     "tslib": "^1.10.0",

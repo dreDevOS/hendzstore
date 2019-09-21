@@ -1,54 +1,46 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AppComponent} from './app.component';
 import {AdminComponent} from './admin/admin.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
-import { ProductsComponent } from './products/products.component';
-import { CartComponent } from './products/cart/cart.component';
-import { UserComponent } from './user/user.component';
-import { SignInComponent } from './user/sign-in/sign-in.component';
-import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { UserComponent } from '../app/layouts/user/user.component';
 import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
-import { CardComponent } from './products/card/card.component';
-import { CardListComponent } from './products/card-list/card-list.component';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './index/login/login.component';
+import { AuthGuard } from './shared/services/auth_guard';
+import {UserAccountComponent} from '../app/layouts/user/user-account/user-account.component';
+import { ProductListComponent } from './layouts/product/product-list/product-list.component';
+import { FavoriteProductsComponent } from './layouts/product/favorite-products/favorite-products.component';
+import { CartProductsComponent } from './layouts/product/cart-products/cart-products.component';
+
 
 const routes: Routes = [
 
   {path: '', children: 
   [
 {path:'', component: IndexComponent},
-{path:"login", component: LoginComponent}
+{path:'login', component: LoginComponent}
   ]},
 
-  {path: '', component: UserComponent},
+  {path:'users', component: UserComponent, canActivate: [AuthGuard],
+children: [ {path:'', component: UserAccountComponent, outlet: 'profileOutlet'}] },
 
-  {path: 'user', component: UserComponent, children :
-  [
-    {path: '', component: SignInComponent},
-    {path: 'signin', component:SignInComponent},
-    {path: 'signup', component: SignUpComponent}
-]
-}, 
+  
+
+ 
 {
   path: 'about', component: AboutComponent
 },
-{
-  path: '',
-  component: HomeComponent
-},
-{
-  path: 'home', component: HomeComponent
-},
+
+
   
-  {path: 'products', component:ProductsComponent, children: 
+  {path: 'products', children: 
   [
-   {path: 'cart', component: CartComponent},
-   {path: 'card', component:  CardComponent},
-   {path: 'card-list', component: CardListComponent}
+    
+   {path:'', component: IndexComponent},
+   {path:'all-products', component: ProductListComponent},
+   {path:'favourite-products', component: FavoriteProductsComponent},
+   {path:'cart-items', component: CartProductsComponent},
 
   ]},
   
