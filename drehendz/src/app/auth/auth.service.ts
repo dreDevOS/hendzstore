@@ -6,9 +6,9 @@ import 'rxjs/Rx';
 import { Observable, of, merge} from 'rxjs';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import {User} from '../../app/shared/models/user'
 import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { User } from '../models/user';
 import { auth } from 'firebase';
 import { error } from 'util';
 import * as firebase from "firebase/app";

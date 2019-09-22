@@ -4,14 +4,11 @@ import {AppComponent} from './app.component';
 import {AdminComponent} from './admin/admin.component';
 import {AdminProductsComponent} from './admin/admin-products/admin-products.component';
 import {AdminUsersComponent} from './admin/admin-users/admin-users.component';
-import {ProductsComponent} from './products/products.component';
-import {CartComponent} from './products/cart/cart.component';
 import {UserComponent} from '../app/layouts/user/user.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { AboutComponent } from './about/about.component';
-import { FeatureProductComponent } from './products/feature-product/feature-product.component';
 import { AngularFireModule} from 'angularfire2';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from "@angular/fire/auth";
@@ -21,8 +18,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AuthService} from '../app/auth/auth.service';
 import {routes} from './app.routes';
 import {environment} from '../environments/environment';
-  import{CardComponent} from '../app/products/card/card.component';
-  import{CardListComponent} from '../app/products/card-list/card-list.component';
 import { IndexComponent } from './index/index.component';
 import { NavbarComponent } from './index/navbar/navbar.component';
 import { IndexModule } from './index/index.module';
@@ -49,13 +44,8 @@ import {SharedModule} from "../app/shared/shared.module";
     AdminComponent,
     AdminProductsComponent,
     AdminUsersComponent,
-    ProductsComponent,
-    CartComponent,
     UserComponent,
     AboutComponent,
-    FeatureProductComponent,
-    CardComponent,
-    CardListComponent,
     IndexComponent,
     NavbarComponent,
     FooterComponent,
