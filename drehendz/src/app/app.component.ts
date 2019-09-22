@@ -16,7 +16,7 @@ export class AppComponent
 constructor(private userService: UserService){}
 
 ngOnInit(){
-  $ (document).ready(function() {
+  (function($) {
     $(".banner").owlCarousel({
       autoHeight: true,
       center: true,

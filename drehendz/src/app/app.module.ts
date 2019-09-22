@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { CartService } from './products/services/cart.service';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import {AppComponent} from './app.component';
 import {AdminComponent} from './admin/admin.component';
 import {AdminProductsComponent} from './admin/admin-products/admin-products.component';
@@ -8,13 +7,10 @@ import {AdminUsersComponent} from './admin/admin-users/admin-users.component';
 import {ProductsComponent} from './products/products.component';
 import {CartComponent} from './products/cart/cart.component';
 import {UserComponent} from '../app/layouts/user/user.component';
-import {SignInComponent} from './user/sign-in/sign-in.component';
-import {SignUpComponent} from './user/sign-up/sign-up.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
 import { FeatureProductComponent } from './products/feature-product/feature-product.component';
 import { AngularFireModule} from 'angularfire2';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
@@ -25,8 +21,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AuthService} from '../app/auth/auth.service';
 import {routes} from './app.routes';
 import {environment} from '../environments/environment';
-import {AngularFirestore} from '@angular/fire/firestore';
-  import { from } from 'rxjs';
   import{CardComponent} from '../app/products/card/card.component';
   import{CardListComponent} from '../app/products/card-list/card-list.component';
 import { IndexComponent } from './index/index.component';
@@ -45,15 +39,7 @@ import { CartProductsComponent } from './layouts/product/cart-products/cart-prod
 import { CartCalculatorComponent } from './layouts/product/cart-calculator/cart-calculator.component';
 import { BestProductComponent } from './layouts/product/best-product/best-product.component';
 import { AddProductComponent } from './layouts/product/add-product/add-product.component';
-export const firebaseConfig = {
-  apiKey: "AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc",
-  authDomain: "drehendz.firebaseapp.com",
-  databaseURL: "https://drehendz.firebaseio.com",
-  projectId: "drehendz",
-  storageBucket: "drehendz.appspot.com",
-  messagingSenderId: "715767442487",
-  appId: "1:715767442487:web:9f8a21fd027f3330"
-};
+import {SharedModule} from "../app/shared/shared.module";
 
 
 
@@ -66,10 +52,7 @@ export const firebaseConfig = {
     ProductsComponent,
     CartComponent,
     UserComponent,
-    SignInComponent,
-    SignUpComponent,
     AboutComponent,
-    HomeComponent,
     FeatureProductComponent,
     CardComponent,
     CardListComponent,
@@ -103,9 +86,11 @@ export const firebaseConfig = {
        ReactiveFormsModule,
       StoreDevtoolsModule,
       routes,
-      IndexModule
+      IndexModule,
+      SharedModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }
