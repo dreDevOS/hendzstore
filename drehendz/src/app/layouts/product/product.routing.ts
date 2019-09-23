@@ -1,5 +1,5 @@
 import { CartProductsComponent } from './cart-products/cart-products.component';
-import { FavouriteProductsComponent } from './favourite-products/favourite-products.component';
+import { FavoriteProductsComponent } from './favorite-products/favorite-products.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { Routes } from '@angular/router';
 import { IndexComponent } from '../../index/index.component';
@@ -19,7 +19,7 @@ export const ProductRoutes: Routes = [
 			},
 			{
 				path: 'favourite-products',
-				component: FavouriteProductsComponent
+				component: FavoriteProductsComponent
 			},
 			{
 				path: 'cart-items',
