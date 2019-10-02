@@ -15,6 +15,11 @@ import { AuthGuard } from './services/auth_guard';
 import { ProductService } from './services/product.service';
 import { UserService } from './services/user.service';
 import {AdminGaurd} from '../../app/shared/services/admin-guard';
+import { NoAccessComponent } from './components/no-access/no-access.component';
+import { CardLoaderComponent } from './components/card-loader/card-loader.component';
+import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
+import {NoProductsFoundComponent} from "./components/no-products-found/no-products-found.component";
+
 
 @NgModule({
     imports: [
@@ -26,7 +31,7 @@ import {AdminGaurd} from '../../app/shared/services/admin-guard';
          HttpClientModule ,
          OwlModule, 
          AgmCoreModule.forRoot({apiKey:" AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc "})],
-    declarations: [FilterByBrandPipe],
+    declarations: [FilterByBrandPipe, NoAccessComponent, CardLoaderComponent, PageNotFoundComponent, NoProductsFoundComponent],
     exports: [NgxPaginationModule, 
         FilterByBrandPipe, 
         OwlModule, 
