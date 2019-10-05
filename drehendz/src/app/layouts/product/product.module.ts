@@ -1,7 +1,14 @@
+// Core Dependencies
+
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+
+// configuration and service
 import { ProductRoutes } from './product.routing';
+
+// Components
+
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductComponent } from './product.component';
 import { BestProductComponent } from './best-product/best-product.component';
@@ -14,12 +21,15 @@ import { FavoriteProductsComponent } from './favorite-products/favorite-products
 
 @NgModule({
     imports: [CommonModule, RouterModule.forChild(ProductRoutes), SharedModule],
-    declarations: [ProductComponent,
+	declarations: 
+	[
+		ProductComponent,
 		BestProductComponent,
 		ProductListComponent,
 		AddProductComponent,
 		ProductDetailComponent,
-		FavoriteProductsComponent,],
+		FavoriteProductsComponent,
+	],
     exports: [BestProductComponent]
 })
 export class ProductModule {}

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/shared/services/product.service';
+import { ToastrService } from 'src/app/shared/services/toastr.service';
+import { Product } from 'src/app/shared/models/product';
 
 @Component({
   selector: 'app-best-product',
@@ -7,7 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BestProductComponent implements OnInit {
 
-  constructor() { }
+  bestProducts: Product [] = [];
+  options: any;
+  loading = false;
+
+  constructor(
+    private productService: ProductService,
+    private toastrService: ToastrService,
+    ) { }
+
 
   ngOnInit() {
   }
