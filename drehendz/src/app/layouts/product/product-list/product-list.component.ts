@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../shared/models/product';
 import {AuthService} from '../../../auth/auth.service';
 import {ToastrService} from 'src/app/shared/services/toastr.service';
-import { ProductService } from 'src/app/shared/services/product.service';
-import { element } from 'protractor';
+
 
 
 @Component({
