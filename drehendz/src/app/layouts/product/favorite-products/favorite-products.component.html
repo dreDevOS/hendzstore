@@ -1,1 +1,26 @@
-<p>favorite-products works!</p>
+<br>
+<div class="container" *ngIf="favoriteProducts.length>0">
+    <div class="row">
+        <!--List of Products-->
+        <div class="col-sm-4" *ngFor="let product of favoriteProducts">
+            <div class="item">
+                <div class="mb-r">
+<!--Card-->
+<div class="card card-cascade wider">
+
+    <!--Card image-->
+    <a [routerLink]="['/products/product', product.$key]" >
+    <div class="view overlay hm-white-slightly">
+        <img [src]="product.productImageURL" class="img-fluid" alt="" width="360px" height="640px">
+        <a>
+                <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+     </a>
+    </div>
+    </a>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

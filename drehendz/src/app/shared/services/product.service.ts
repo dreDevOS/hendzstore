@@ -132,5 +132,5 @@ addToCart(data: Product): void {
 export class FavoriteProduct {
     product: Product;
     productId: string;
-    userId: string
+    userId: string;
 }

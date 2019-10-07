@@ -1,6 +1,6 @@
 <br>
 <div class="container">
-    <div class="row" *ngIf="authService.isAdmin () " >
+    <div class="row"  >
         <div class="col-sm">
             <div class="float-right">
                 <button type=" button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#exampleModalLong">
@@ -59,19 +59,35 @@
                                     <div class="card-footer">
                                         <span class="left">$ {{product.productPrice}} </span>
                                         <span class="right">
-                                            <a placement="top" ></a>
+                                            <a placement="top" mdbTooltip="Add to Wishlist" container="body" (click)="addFavourite(product) " >
+                                                <i class="fa fa-heart"></i>
+                                            </a>
+                                            <a placement="top" mdbTooltip="Add to Cart" container="body" (click)="addToCart(product)">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                  </a>
+                                                  <a placement="top" mdbTooltip="Remove Product" container="body" *ngIf="authService.isAdmin()"
+                                                       (click)="removeProduct(product.$key)">
+                                                           <i class="fa fa-trash"></i>
+                        
+                                                  </a>
                                         </span>
                                     </div>
 
                             </div>
+                            <!--/.Card content-->
                            </div>
-
+                           <!--/.Card-->
                        </div>
                    </div>
                </div> 
+           </div>
+           <!--Pagination-->
+           <div class="text-center mt-3">
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
            </div>
        </div>
 
         </div>
     </div>
 </div>
+<app-add-product></app-add-product>
