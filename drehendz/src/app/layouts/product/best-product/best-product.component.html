@@ -16,39 +16,7 @@
 
 
 
-<owl-carousel *ngIf="!loading" [options]="options" >
 
-    <div class="item" style="padding: 20px" *ngFor="let products of bestProducts; let i = index ">
-    <div class="mb-r">
-
-        <!--Card-->
-        <div class="card card-cascade wider">
-
-
-            <!--Card image-->
-            <a [routerLink]="['/products/product', product.$key] ">
-
-                <div class="view overlay hm-white-slight">
-                    <img [src]="product.productImageURL" class="img-fluid" alt="" width="360px" height="640px">
-                    <a>
-                            <div class="mask waves-effect waves-light" mdbRippleRadius></div>
-                          </a>
-                </div>
-            </a>
-
-
-<!--Card content-->
-<div class="card-body  text-center no-padding">
-<!--Catergory & Title-->
-<a href="" class="text-muted">
-    <h5> {{product.productCatergory}}</h5>
-</a>
-
-</div>
-        </div>
-    </div>
-    </div>
-</owl-carousel>
 
 
 

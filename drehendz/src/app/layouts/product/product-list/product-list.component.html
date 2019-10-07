@@ -1,1 +1,77 @@
-<p>product-list works!</p>
+<br>
+<div class="container">
+    <div class="row" *ngIf="authService.isAdmin () " >
+        <div class="col-sm">
+            <div class="float-right">
+                <button type=" button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#exampleModalLong">
+                    Add Product
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="brand_select">By Brands:</label>
+                <select class="form-control" name="" id="brand_select" [(ngModel)]="selectedBrand"></select>
+            </div>
+
+
+        </div>
+        <div class="col-md-9">
+
+       <div class="container">
+           <div class="row">
+               <!--List of Products-->
+               <div class="col-sm-4 mb-2" >
+                   <div class="item">
+                       <div class="mb-r">
+                           <!--Card-->
+                           <div class="card card-cascade wider">
+                               <!--Card Image-->
+                               <a [routerLink]=" ['/products/product', product.$key]">
+                                <div class="view overlay hm-white-slight">
+                                    <img [src]="product.productImageURL" class="img-fluid" alt="" width="360px" height="640px"> 
+                                </div>
+                            </a>
+                            <a>
+                                    <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+                            </a>
+
+                            <!--Card Image-->
+                            <!--Card content-->
+                            <div class="card-body trext-center no-padding">
+                                <!--Catergory & Title-->
+                                <a class="text-muted">
+                                    <h5> {{product.productCatergory}}  </h5>
+                                </a>
+                                <p class="card-title">
+                                    <strong>
+                                        <a [routerLink]="['/products/product', product.$key]" routerLinkActive="router-link-active"> {{product.productName}} </a>
+                                    </strong>
+                                </p>
+
+                                <!--Description-->
+                                <p class="card-text">
+                                    {{ product.productDescription }} 
+                                </p>
+                                    <!--Card footer-->
+                                    <div class="card-footer">
+                                        <span class="left">$ {{product.productPrice}} </span>
+                                        <span class="right">
+                                            <a placement="top" ></a>
+                                        </span>
+                                    </div>
+
+                            </div>
+                           </div>
+
+                       </div>
+                   </div>
+               </div> 
+           </div>
+       </div>
+
+        </div>
+    </div>
+</div>
