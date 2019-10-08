@@ -20,9 +20,8 @@ import { CardLoaderComponent } from './components/card-loader/card-loader.compon
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {NoProductsFoundComponent} from "./components/no-products-found/no-products-found.component";
 
-
 @NgModule({
-    imports: [
+    imports: [ ,
         RouterModule,
         NgxPaginationModule,
         AngularFireAuthModule,AngularFireDatabaseModule,
