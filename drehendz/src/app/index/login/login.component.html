@@ -2,15 +2,19 @@
 <section class="container">
 
   <!--Login form-->
-<div class="col-sm-6">
+<div class="col-sm-6" >
 
-<form style="width:22rem"  (ngSubmit)="signInWithEmail (loginForm)">
+<form style="width:22rem" #loginForm="ngForm"  (ngSubmit)="signInWithEmail (loginForm)">
 <p class="h5 text-center mb-4">Sign in</p>
 
 <div class="form-group">
 
     <label for="loginEmailId">Email address </label>
-    <input type="email" class="form-control" id="loginEmailId" aria-describedby="emailHelp" placeholder="enter email" name="emailId">
+    <input  
+    [(ngModel)]="user.emailId" mdbInputValidate [email]="true" type="email"
+     class="form-control" id="loginEmailId" 
+    aria-describedby="emailHelp" 
+    placeholder="enter email" name="emailId">
       
 </div>
 
@@ -18,7 +22,11 @@
 <div class="form-group">
 
 <label for="exampleInputPassword1">Password</label>
-<input type="password" class="form-control" id="loginPassword" name="loginPassword" autocomplete="current-password" placeholder="Password">
+<input 
+type="password" [(ngModel)]="user.loginPassword"
+class="form-control" id="loginPassword" 
+name="loginPassword" autocomplete="current-password"
+placeholder="Password">
 
 </div>
 
@@ -44,11 +52,14 @@
   </p>
  
 <!--Login Form-->
+
+<!--Modal: Register Form-->
 <div class="modal fade" id="createUserForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 <div class="modal-dialog cascading-modal" role="document"> 
 
-    <form userForm="ngForm" (ngSubmit)="addUser(userForm)">
+    <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
      <div class="modal-content">
+
          <div class="modal-header light-blue darken-3 white-text">
              <h4 class="title">
                  <i class="fa fa-user-plus"></i> Register
@@ -58,7 +69,10 @@
                   </button>
          </div>
          <div class="modal-body">
-
+        
+            <div class="alert alert-danger" role="alert" *ngIf="errorInUserCreate">
+                {{errorMessage.message}}
+            </div>
 
      <div class="form-group form-sm">
          <label for="email">Email</label>
@@ -72,17 +86,14 @@
      </div>
      <div class="text-center mt-2">
          <button class="btn btn-info waves-light" id="signUpButton" mdbRippleRadius>Sign Up</button>
+         <i class="fa fa-sign-in ml-1"></i>
      </div>
-
-         </div>
+      </div>
      </div>
-
     </form>
-
 </div>
 </div>
-
-
 </section>
+<br>
 <br>
 <br>
