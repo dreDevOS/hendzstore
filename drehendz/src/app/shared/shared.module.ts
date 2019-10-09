@@ -19,19 +19,34 @@ import { NoAccessComponent } from './components/no-access/no-access.component';
 import { CardLoaderComponent } from './components/card-loader/card-loader.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {NoProductsFoundComponent} from "./components/no-products-found/no-products-found.component";
-
+import {MDBBootstrapModule} from "angular-bootstrap-md";
+import{NgxContentLoadingModule} from "ngx-content-loading";
+import { MomentTimeAgoPipe } from './pipes/moment-time-ago-pipe';
 @NgModule({
-    imports: [ ,
+    imports: [ 
         RouterModule,
+        MDBBootstrapModule.forRoot()  ,
         NgxPaginationModule,
         AngularFireAuthModule,AngularFireDatabaseModule,
          FormsModule,
          AngularFireModule.initializeApp(FireBaseConfig), 
          HttpClientModule ,
          OwlModule, 
-         AgmCoreModule.forRoot({apiKey:" AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc "})],
-    declarations: [FilterByBrandPipe, NoAccessComponent, CardLoaderComponent, PageNotFoundComponent, NoProductsFoundComponent],
-    exports: [NgxPaginationModule, 
+         AgmCoreModule.forRoot({apiKey:" AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc "}),
+         NgxContentLoadingModule
+        ],
+    declarations: 
+    [
+        FilterByBrandPipe, 
+        NoAccessComponent, 
+        CardLoaderComponent, 
+        PageNotFoundComponent,
+        NoProductsFoundComponent,
+         MomentTimeAgoPipe ],
+    exports: 
+    [ 
+        MDBBootstrapModule,
+        NgxPaginationModule, 
         FilterByBrandPipe, 
         OwlModule, 
         AngularFireModule,
@@ -39,7 +54,14 @@ import {NoProductsFoundComponent} from "./components/no-products-found/no-produc
         AngularFireDatabaseModule,
         FormsModule,
         RouterModule,
-        AgmCoreModule, ] ,
+        AgmCoreModule,
+        NoAccessComponent,
+        NoProductsFoundComponent,
+        PageNotFoundComponent,
+        MomentTimeAgoPipe,
+        NgxContentLoadingModule,
+        CardLoaderComponent,
+  ] ,
     providers: [AuthService, AuthGuard, AdminGaurd, ProductService, UserService, FormBuilder]
 })
 export class SharedModule{}
