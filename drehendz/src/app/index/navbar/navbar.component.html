@@ -33,23 +33,26 @@ aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigat
 <ul class="navbar-nav ml-auto">
     <li class="nav-item">
         <div>
-            <a class="nav-link" href="#" [routerLink]="['/products/favourite-products']">
+          <a class="nav-link" href="javascript:;;" [routerLink]="['/products/favorite-products']">
             <i class="fa fa-heart">
-                <span class="mt-2">   </span>
+              <span class="mt-2"> {{productService.navbarFavProdCount}}</span>
             </i>
-            </a>
+          </a>
         </div>
-    </li>
+
+      </li>
 
     <li class="nav-item">
-            <div>
-                    <a class="nav-link" href="javascript:;;" [routerLink]="['/products/cart-items']">
-                      <i class="fa fa-shopping-cart">
-                        <span class="mt-2"> </span>
-                      </i>
-                    </a>
-                  </div>
-    </li>
+        <div>
+          <a class="nav-link" href="javascript:;;" [routerLink]="['/products/cart-items']">
+            <i class="fa fa-shopping-cart">
+              <span class="mt-2"> {{productService.navbarCartCount}}</span>
+            </i>
+          </a>
+        </div>
+      </li>
+
+   
 
     <li class="nav-item" *ngIf="authService.isLoggedIn()">
             <a class="nav-link" [routerLink]="['/users']">
