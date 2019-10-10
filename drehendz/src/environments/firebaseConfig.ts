@@ -1,7 +1,9 @@
 export const FireBaseConfig = 
 {
-    apiKey: 'AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc' ,
-    authDomain:'https://drehendz.firebaseapp.com/__/auth/handler',
-    databaseURL: 'https://drehendz.firebaseio.com/',
-    storageBucket: 'gs://drehendz.appspot.com '
+    apiKey: "AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc" ,
+    authDomain:"drehendz.firebaseapp.com",
+    databaseURL: "https://drehendz.firebaseio.com",
+    projectId: "drehendz",
+    storageBucket: "drehendz.appspot.com",
+    messagingSenderId: "715767442487"
 }

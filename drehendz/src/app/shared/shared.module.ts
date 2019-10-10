@@ -18,19 +18,24 @@ import {AdminGaurd} from '../../app/shared/services/admin-guard';
 import { NoAccessComponent } from './components/no-access/no-access.component';
 import { CardLoaderComponent } from './components/card-loader/card-loader.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
-import {NoProductsFoundComponent} from "./components/no-products-found/no-products-found.component";
-import {MDBBootstrapModule} from "angular-bootstrap-md";
-import{NgxContentLoadingModule} from "ngx-content-loading";
-import { MomentTimeAgoPipe } from './pipes/moment-time-ago-pipe';
+import  {NoProductsFoundComponent} from "./components/no-products-found/no-products-found.component";
+import  {MDBBootstrapModule} from "angular-bootstrap-md";
+import  {NgxContentLoadingModule} from "ngx-content-loading";
+import  { MomentTimeAgoPipe } from './pipes/moment-time-ago-pipe';
+import { CommonModule } from '@angular/common';
+import { AngularFirestore } from '@angular/fire/firestore';
 @NgModule({
     imports: [ 
+        CommonModule,
         RouterModule,
         MDBBootstrapModule.forRoot()  ,
         NgxPaginationModule,
-        AngularFireAuthModule,AngularFireDatabaseModule,
+        AngularFireAuthModule,
+        AngularFireDatabaseModule,
          FormsModule,
          AngularFireModule.initializeApp(FireBaseConfig), 
          HttpClientModule ,
+         FormsModule,
          OwlModule, 
          AgmCoreModule.forRoot({apiKey:" AIzaSyBcRdcmeKxUzSj9artsU4xGYGDF5vz9cJc "}),
          NgxContentLoadingModule
@@ -62,6 +67,6 @@ import { MomentTimeAgoPipe } from './pipes/moment-time-ago-pipe';
         NgxContentLoadingModule,
         CardLoaderComponent,
   ] ,
-    providers: [AuthService, AuthGuard, AdminGaurd, ProductService, UserService, FormBuilder]
+    providers: [ AngularFirestore,   AuthService, AuthGuard, AdminGaurd, ProductService, UserService, FormBuilder]
 })
 export class SharedModule{}
