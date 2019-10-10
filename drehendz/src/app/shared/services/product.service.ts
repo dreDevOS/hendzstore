@@ -73,7 +73,7 @@ setTimeout(() => {
     }
 
 getLocalFavoriteProducts(): Product[] {
-    const products: Product [] = JSON.parse(localStorage.getItem('avf_item'));
+    const products: Product [] = JSON.parse(localStorage.getItem('avf_item')) || [];
 
     return products;
 }
