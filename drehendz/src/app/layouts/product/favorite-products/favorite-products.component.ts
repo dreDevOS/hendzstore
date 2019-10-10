@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Product} from '../../../shared/models/product';
+import {ProductService} from '../../../shared/services/product.service';
 
 @Component({
   selector: 'app-favorite-products',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorite-products.component.scss']
 })
 export class FavoriteProductsComponent implements OnInit {
+  favoriteProducts: Product [];
+  showDataNotFound = true;
 
-  constructor() { }
+  //Not Found Message
+  messageTitile = 'No Favorite Products Found';
+  messageDescription = 'Please, choose your favorite products';
+
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
+    this.getFavoriteProduct();
   }
-
+getFavoriteProduct(){
+  this.favoriteProducts = this.productService.getLocalFavoriteProducts();
+}
 }
