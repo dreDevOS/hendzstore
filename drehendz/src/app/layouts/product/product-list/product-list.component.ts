@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../shared/models/product';
 import {AuthService} from '../../../auth/auth.service';
 import {ToastrService} from 'src/app/shared/services/toastr.service';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 
 
@@ -18,9 +19,9 @@ brands = ['All', 'Apple', 'Samsung', 'LG', 'Victoria Seceret']
 selectBrand: 'All';
 
 page= 1;
-  productService: any;
 
   constructor(
+    private productService: ProductService,
     public authService: AuthService,
     private toastrService: ToastrService,
     ) { }
@@ -45,5 +46,10 @@ page= 1;
 }
   );
   }
-
+  addFavourite(product: Product) {
+		this.productService.addFavoriteProduct(product);
+  }
+  addToCart(product: Product) {
+		this.productService.addToCart(product);
+	}
 }

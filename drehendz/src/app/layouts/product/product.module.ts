@@ -29,6 +29,8 @@ import { FavoriteProductsComponent } from './favorite-products/favorite-products
 		AddProductComponent,
 		ProductDetailComponent,
 		FavoriteProductsComponent,
+		
+		
 	],
     exports: [BestProductComponent]
 })

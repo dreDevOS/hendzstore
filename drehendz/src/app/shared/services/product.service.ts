@@ -7,6 +7,17 @@ import {ToastrService} from './toastr.service';
 
 @Injectable ()
 export class ProductService {
+  removeLocalCartProduct(product: Product) {
+    const products: Product[] = JSON.parse(localStorage.getItem('avct_item'));
+
+   for (let i = 0; i<products.length; i++) {
+       if (products [i].productId === product.productId)
+       products.splice(i, 1);
+       break;
+   }
+
+
+  }
     products: AngularFireList<Product>;
     product: AngularFireObject<Product>;
 

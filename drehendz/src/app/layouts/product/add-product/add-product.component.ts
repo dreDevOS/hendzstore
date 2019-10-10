@@ -17,7 +17,7 @@ declare var toastr: any;
 })
 export class AddProductComponent implements OnInit {
 product: Product = new Product ();
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
 
 
@@ -37,7 +37,7 @@ product: Product = new Product ();
     const date = productForm.value ['productAdded'];
 
 
-    //this.productService.createProduct(productForm.value);
+    this.productService.createProduct(productForm.value);
 
     this.product = new Product();
 
