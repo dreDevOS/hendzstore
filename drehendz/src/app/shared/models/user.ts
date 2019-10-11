@@ -13,7 +13,7 @@ isAdmin: boolean;
 avatar: string;
 
 }
-export class UserDeatail 
+export class UserDetail 
 {
     $key: string;
     firstName: string;

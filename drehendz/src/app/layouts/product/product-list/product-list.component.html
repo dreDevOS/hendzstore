@@ -13,9 +13,16 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="brand_select">By Brands:</label>
-                <select class="form-control" name="" id="brand_select" [(ngModel)]="selectedBrand"></select>
+                <select class="form-control" name="" id="brand_select" [(ngModel)]="selectedBrand">
+                    <option *ngFor="let brand of brands" [ngValue]="brand"> {{brand}} </option>
+                </select>
             </div>
+         <ul class="list-group">
+             <li class="list-group-item">fashion outfit idea</li>
+             <li class="list-group-item">high end technology</li>
+             <li class="list-group-item">mobile device service</li>
 
+         </ul>
 
         </div>
         <div class="col-md-9">
