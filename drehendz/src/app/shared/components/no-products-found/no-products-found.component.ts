@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-no-products-found',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./no-products-found.component.scss']
 })
 export class NoProductsFoundComponent implements OnInit {
+   @Input("title") title: String;
+  @Input("description") description: String;
 
   constructor() { }
 
