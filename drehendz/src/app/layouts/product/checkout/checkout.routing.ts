@@ -3,6 +3,9 @@ import { CheckboxComponent } from 'angular-bootstrap-md';
 import { AuthGuard } from 'src/app/shared/services/auth_guard';
 import { ProductComponent } from '../product.component';
 import { NgModule } from '@angular/core';
+import { ShippingDetailsComponent } from './shipping-details/shipping-details.component';
+import { BillingDetailsComponent } from './billing-details/billing-details.component';
+import { ResultComponent } from './result/result.component';
 
 export const checkoutRoutes: Routes = [
     {
@@ -16,7 +19,20 @@ export const checkoutRoutes: Routes = [
                 outlet: 'checkOulLet'
             },
             {
+                path: 'shipping-details',
+                component: ShippingDetailsComponent,
+                outlet: 'checkOutlet'
                 
+            },
+            {
+                path: 'billing-details',
+                component: BillingDetailsComponent,
+                outlet: 'checkOutlet'
+            },
+            {
+                path: 'result',
+                component: ResultComponent,
+                outlet: 'checkOutlet'
             }
         ]
     }

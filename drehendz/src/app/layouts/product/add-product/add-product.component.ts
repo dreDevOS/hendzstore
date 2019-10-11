@@ -43,7 +43,7 @@ product: Product = new Product ();
 
     $('#exampleModalLong').modal('hide');
 
-    toastr.success('product' + productForm.value['productName']  + 'is added successfully ', 'Product Creation');
+   // toastr.success('product' + productForm.value['productName']  + 'is added successfully ', 'Product Creation');
    
   }
 

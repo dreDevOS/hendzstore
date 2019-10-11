@@ -29,11 +29,11 @@
                            <!--Card-->
                            <div class="card card-cascade wider">
                                <!--Card Image-->
-                               <!--a [routerLink]=" ['/products/product',product.$key]">
+                               <a [routerLink]=" ['/products/product',product.$key]">
                                 <div class="view overlay hm-white-slight">
                                     <img [src]="product.productImageURL" class="img-fluid" alt="" width="360px" height="640px"> 
                                 </div>
-                            </a-->
+                            </a>
                             <a>
                                     <div class="mask waves-effect waves-light" mdbRippleRadius></div>
                             </a>
@@ -43,21 +43,21 @@
                             <div class="card-body trext-center no-padding">
                                 <!--Catergory & Title-->
                                 <a class="text-muted">
-                                    <!--h5> {{product.productCatergory}}  </h5-->
+                                    <h5> {{product.productCatergory}}  </h5>
                                 </a>
                                 <p class="card-title">
                                     <strong>
-                                        <!--a [routerLink]="['/products/product', product.$key]" routerLinkActive="router-link-active"> {{product.productName}} </a-->
+                                        <a [routerLink]="['/products/product', product.$key]" routerLinkActive="router-link-active"> {{product.productName}} </a>
                                     </strong>
                                 </p>
 
                                 <!--Description-->
-                                <!--p class="card-text">
+                                <p class="card-text">
                                     {{ product.productDescription }} 
-                                </p-->
+                                </p>
                                     <!--Card footer-->
                                     <div class="card-footer">
-                                        <!--span class="left">$ {{product.productPrice}} </span-->
+                                        <span class="left">$ {{product.productPrice}} </span>
                                         <span class="right">
                                             <a placement="top" mdbTooltip="Add to Wishlist" container="body" (click)="addFavourite(product) " >
                                                 <i class="fa fa-heart"></i>
@@ -65,11 +65,11 @@
                                             <a placement="top" mdbTooltip="Add to Cart" container="body" (click)="addToCart(product)">
                                                     <i class="fa fa-shopping-cart"></i>
                                                   </a>
-                                                  <!--a placement="top" mdbTooltip="Remove Product" container="body" *ngIf="authService.isAdmin()"
+                                                  <a placement="top" mdbTooltip="Remove Product" container="body" *ngIf="authService.isAdmin()"
                                                        (click)="removeProduct(product.$key)">
                                                            <i class="fa fa-trash"></i>
                         
-                                                  </a-->
+                                                </a>
                                         </span>
                                     </div>
 
