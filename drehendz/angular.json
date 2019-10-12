@@ -5,7 +5,11 @@
   "projects": {
     "drehendz": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -24,9 +28,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/font-awesome/scss/font-awesome.scss",
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+               "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -121,11 +130,6 @@
         }
       }
     }
-  },
-  "defaultProject": "drehendz",
-  "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "scss"
-    }
   }
+  
 }
