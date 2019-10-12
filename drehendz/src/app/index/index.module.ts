@@ -14,12 +14,7 @@ import {IndexComponent} from './index.component';
 import {LoginComponent} from './login/login.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {SharedModule} from '../shared/shared.module';
-import { FooterComponent } from './footer/footer.component';
-import { AboutComponent} from '../about/about.component';
-import { CartProductsComponent } from '../layouts/product/cart-products/cart-products.component';
-import { AdminComponent } from '../admin/admin.component';
-import { AdminProductsComponent } from '../admin/admin-products/admin-products.component';
-import { AdminUsersComponent } from '../admin/admin-users/admin-users.component';
+import {FooterComponent } from './footer/footer.component';
 
 
 
@@ -27,7 +22,12 @@ import { AdminUsersComponent } from '../admin/admin-users/admin-users.component'
 
 @NgModule({
 
-  declarations: [IndexComponent, NavbarComponent, LoginComponent, FooterComponent, AboutComponent, CartProductsComponent, AdminComponent, AdminProductsComponent, AdminUsersComponent],
+  declarations: [
+    IndexComponent,
+     NavbarComponent,
+     LoginComponent, 
+     FooterComponent, 
+     ],
    schemas: [NO_ERRORS_SCHEMA],
   imports: [
     CommonModule, ProductModule,SharedModule, RouterModule.forChild(IndexRoutes)],

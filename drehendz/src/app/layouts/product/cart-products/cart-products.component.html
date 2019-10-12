@@ -64,7 +64,10 @@
             
         </div>
         <div class="col-4">
-                <app-cart-calculator [products]="cartProducts"></app-cart-calculator>
+                <!--app-cart-calculator [products]="cartProducts" ></app-cart-calculator-->
               </div>
     </div>
 </div>
+<div class="container" *ngIf="cartProducts.length === 0">
+    <app-no-products-found [title]="messageTitle" [description]="messageDescription"></app-no-products-found>
+  </div>

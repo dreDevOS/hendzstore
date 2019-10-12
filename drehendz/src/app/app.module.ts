@@ -6,6 +6,7 @@ import {SharedModule} from "../app/shared/shared.module";
 import { UserModule } from './layouts/user/user.module';
 import { AppRoutes } from './app.routing';
 import { RouterModule } from '@angular/router';
+import { ProductModule } from './layouts/product/product.module';
 
 
 
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
   imports: [
       BrowserModule, 
       IndexModule,
+      ProductModule,
       SharedModule,
       UserModule,
       RouterModule.forRoot(AppRoutes)
