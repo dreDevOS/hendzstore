@@ -7,6 +7,7 @@ import { UserModule } from './layouts/user/user.module';
 import { AppRoutes } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { ProductModule } from './layouts/product/product.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -18,7 +19,8 @@ import { ProductModule } from './layouts/product/product.module';
       ProductModule,
       SharedModule,
       UserModule,
-      RouterModule.forRoot(AppRoutes)
+      RouterModule.forRoot(AppRoutes),
+      BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
