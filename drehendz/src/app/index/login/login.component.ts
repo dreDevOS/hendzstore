@@ -80,9 +80,11 @@ export class LoginComponent implements OnInit {
   this.router.navigate(["/"]);
   })
   .catch((err) => {
-    this.toastService.error("Authentication Failed", "Invalid Credentials, Please check your credentials");
+    this.toastService.error("Authentication Failed","Invalid Credentials, Please Check your credentials");
 });
+
   }
+
 
 
 signInWithGoogle(){
