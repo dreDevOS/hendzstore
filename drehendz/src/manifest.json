@@ -1,0 +1,17 @@
+{
+    "name": "drehendz",
+    "short_name": "drehendz",
+    "theme_color": "#1976d2",
+    "background_color": "#fafafa",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "assets/icons/icon drehendz.",
+        "sizes": "192x133",
+        "type": "image/png"
+      }
+      
+    ]
+  }
