@@ -79,9 +79,7 @@ export class LoginComponent implements OnInit {
   }, 1500);
   this.router.navigate(["/"]);
   })
-  .catch((err) => {
-    this.toastService.error("Authentication Failed","Invalid Credentials, Please Check your credentials");
-});
+  .catch((err) => {this.toastService.error ("Error has Occured", "Please try again later");  });
 
   }
 
