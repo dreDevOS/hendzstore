@@ -41,9 +41,7 @@ page= 1;
   this.productList.push(y as Product);
  });
 },
-(err) => {
-  this.toastrService.error('Error while fetching Products', err);
-}
+
   );
   }
   addFavourite(product: Product) {
