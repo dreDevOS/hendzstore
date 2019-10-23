@@ -15,7 +15,8 @@ export class BestProductComponent implements OnInit {
   loading = false;
 
   constructor(
-    private toastrService: ToastrService,
+    private toasterService: ToastrService, 
+   private productService: ProductService
     ) { }
 
 
@@ -33,8 +34,27 @@ export class BestProductComponent implements OnInit {
       autoplayTimeout: 3000,
       lazyLoad: true
     };
-    
+    this.getAllProducts();
   }
+  getAllProducts() {
+    this.loading = true;
+		const x = this.productService.getProducts();
+    x.snapshotChanges().subscribe((product) => 
+    {
+      this.loading = false;
+      this.bestProducts = [];
+      for (let i = 0; i < 5; i++) {
+        const y = product[i].payload.toJSON();
+        y['$key'] = product[i].key;
+        this.bestProducts.push(y as Product);
+      }
+
+    },
+    (error) =>{this.toasterService.error('Error while fetching Products', error);}
+    
+    );
+    }
+  
   
 
 }
