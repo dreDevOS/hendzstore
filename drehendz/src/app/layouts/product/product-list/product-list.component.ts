@@ -14,7 +14,7 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class ProductListComponent implements OnInit {
 productList: Product [];
 loading = false;
-brands = ['All', 'Apple', 'Samsung', 'LG', 'Victoria Seceret', 'Denim', 'Rhinestone', ]
+brands = ['All', 'Apple' ]
 
 selectBrand: 'All';
 
