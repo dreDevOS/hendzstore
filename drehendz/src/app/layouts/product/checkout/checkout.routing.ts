@@ -1,16 +1,16 @@
 import { Routes, RouterModule } from '@angular/router';
-import { CheckboxComponent } from 'angular-bootstrap-md';
 import { AuthGuard } from 'src/app/shared/services/auth_guard';
 import { NgModule } from '@angular/core';
 import { ShippingDetailsComponent } from './shipping-details/shipping-details.component';
 import { BillingDetailsComponent } from './billing-details/billing-details.component';
 import { ResultComponent } from './result/result.component';
 import { ProductsComponent } from './products/products.component';
+import { CheckoutComponent } from './checkout.component';
 
 export const checkoutRoutes: Routes = [
     {
         path: 'checkouts',
-        component: CheckboxComponent,
+        component: CheckoutComponent,
         canActivate: [AuthGuard], 
         children: [
             {
