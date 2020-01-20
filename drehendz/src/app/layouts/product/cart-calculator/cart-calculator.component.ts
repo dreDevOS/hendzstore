@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges, SimpleChange } from '@angular/core';
 import { Product } from 'src/app/shared/models/product';
 
 @Component({
@@ -6,7 +6,19 @@ import { Product } from 'src/app/shared/models/product';
   templateUrl: './cart-calculator.component.html',
   styleUrls: ['./cart-calculator.component.scss']
 })
-export class CartCalculatorComponent implements OnInit {
+export class CartCalculatorComponent implements OnInit, OnChanges {
+  
+  
+  ngOnChanges(changes: SimpleChanges) {
+   const dataChanges: SimpleChange = changes.products;
+
+   const products: Product[] = dataChanges.currentValue;
+   this.totalValue = 0;
+   products.forEach((product) => {
+     this.totalValue += product.productPrice;
+   })
+
+  }
 
   @Input() products: Product[];
 
@@ -15,17 +27,8 @@ export class CartCalculatorComponent implements OnInit {
 
   constructor() { }
 
-  ngOnChNGES(changes: SimpleChanges) {
-    const dataChanges: SimpleChange = changes.products;
-
-    const products: Product[]= dataChanges.currentValue;
-    this.totalValue = 0;
-    products.forEach ((product)  => {
-      this.totalValue += product.productPrice;
-
-    });
+  
     
-  }
 
   ngOnInit() {
   }

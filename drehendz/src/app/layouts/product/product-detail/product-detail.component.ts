@@ -40,9 +40,7 @@ getProductDetail(id: string) {
       this.product = y;
 
     },
-    (error) => {
-      this.toastrService.error('Error while fetching Product Detail', error);
-    }
+   
   );
 }
 

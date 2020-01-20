@@ -119,8 +119,8 @@ addToCart(data: Product): void {
     a= JSON.parse(localStorage.getItem('avct_item')) || [];
 
     a.push(data);
-    this.toastrService.wait('Adding Product to Cart', 'Product Adding to cart');
-    setTimeout(()   =>{
+    
+    setTimeout(()   => {
         localStorage.setItem('avct_item', JSON.stringify(a));
         this.calculateLocalCartProdCounts();
 
