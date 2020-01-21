@@ -31,7 +31,7 @@
            <app-card-loader [loop]="3" [height]="800" *ngIf="loading"></app-card-loader>
            <div class="row" *ngIf="!loading">
                <!--List of Products-->
-               <div class="col-sm-4 mb-2" *ngFor="let product of productList | filterByBrand: selectedBrand | paginate: { itemsPerPage: 6, currentPage: page } " >
+               <div class="col-sm-4 mb-2" *ngFor="let product of productList | filterByBrand: selectedBrand | paginate: { itemsPerPage: 15, currentPage: page } " >
                    <div class="item">
                        <div class="mb-r">
                            <!--Card-->
