@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "engines" :{
+  "engines": {
     "node": "10.13.0",
     "npm": "6.2.0"
   },
@@ -59,7 +59,7 @@
     "ngx-owl-carousel": "^2.0.7",
     "ngx-pagination": "^4.1.0",
     "ngx-toastr": "^11.1.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "owl.carousel": "^2.3.4",
     "popper.js": "^1.15.0",
     "primeng": "^8.1.1",
@@ -75,7 +75,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.803.21",
+    "@angular-devkit/build-angular": "^0.803.23",
     "@angular/cli": "~8.2.0",
     "@angular/compiler-cli": "~8.2.0",
     "@angular/language-service": "~8.2.0",
