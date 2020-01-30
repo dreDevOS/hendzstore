@@ -9,6 +9,6 @@ export class Product {
     productAdded: number;
     productQuality: number;
     ratings: number;
-    favourite: boolean;
+    favorite: boolean;
     productSeller: string;
 }

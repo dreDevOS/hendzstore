@@ -35,12 +35,12 @@
   </p>
   <!--Card footer-->
   <div class="card-footer">
-        <span class="left">₹ {{ product.productPrice }}</span>
+        <span class="left">${{ product.productPrice }}</span>
         <span class="right">
           <a placement="top" mdbTooltip="Quick Look" container="body" [routerLink]="['/products/product', product.$key]">
             <i class="fa fa-eye"></i>
           </a>
-          <a placement="top" mdbTooltip="Remove Product" container="body" (click)="removeFavourite(product)">
+          <a placement="top" mdbTooltip="Remove Product" container="body" (click)="removeFavorite(product)">
             <i class="fa fa-trash"></i>
           </a>
         </span>
@@ -55,6 +55,6 @@
     </div>
 </div>
 
-<div class="container" *ngIf="favoruiteProducts.length === 0">
-        <!--app-no-products-found [title]="messageTitle" [description]="messageDescription"--><!--/app-no-products-found-->
+<div class="container" *ngIf="favoriteProducts.length === 0">
+        <app-no-products-found [title]="messageTitle" [description]="messageDescription"--></app-no-products-found>
 </div>

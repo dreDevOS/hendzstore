@@ -44,10 +44,13 @@ page= 1;
 
   );
   }
-  addFavourite(product: Product) {
+  addFavorite(product: Product) {
 		this.productService.addFavoriteProduct(product);
   }
   addToCart(product: Product) {
 		this.productService.addToCart(product);
+  }
+  removeProduct(key: string) {
+		this.productService.deleteProduct(key);
 	}
 }
