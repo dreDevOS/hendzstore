@@ -6,16 +6,24 @@ import { NoAccessComponent } from './shared/components/no-access/no-access.compo
 
 export const AppRoutes: Routes = [
 
-    {path: '', children:  [
-        {path:'', loadChildren: './index/index.module#IndexModule'},
-        {path: 'products',
-    loadChildren:  './layouts/product/product.module#ProductModule'},
     {
-        path: 'users',
-        loadChildren: './layouts/user/user.module#UserModule'
-    },
-    ]
-},
-{path: 'no-access', component: NoAccessComponent},
-{path: '**', component: PageNotFoundComponent}
+		path: '',
+		children: [
+			{
+				path: '',
+				loadChildren: './index/index.module#IndexModule'
+			},
+			{
+				path: 'products',
+				loadChildren: './layouts/product/product.module#ProductModule'
+			},
+			{
+				path: 'users',
+				loadChildren: './layouts/user/user.module#UserModule'
+			},
+			
+		]
+	},
+	{ path: 'no-access', component: NoAccessComponent },
+	{ path: '**', component: PageNotFoundComponent }
 ];

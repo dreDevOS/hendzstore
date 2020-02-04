@@ -18,11 +18,12 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { FavoriteProductsComponent } from './favorite-products/favorite-products.component';
 import { CartProductsComponent } from './cart-products/cart-products.component';
 import { CartCalculatorComponent } from './cart-calculator/cart-calculator.component';
+import { CheckoutModule } from './checkout/checkout.module';
 
 
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(ProductRoutes), SharedModule],
+    imports: [CommonModule, RouterModule.forChild(ProductRoutes), SharedModule, CheckoutModule],
 	declarations: 
 	[
 		ProductComponent,

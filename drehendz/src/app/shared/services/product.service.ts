@@ -9,11 +9,12 @@ import {ToastrService} from './toastr.service';
 export class ProductService {
   removeLocalCartProduct(product: Product) {
     const products: Product[] = JSON.parse(localStorage.getItem('avct_item'));
+     console.log(products);
 
-   for (let i = 0; i<products.length; i++) {
+      for (let i = 0; i<products.length; i++) {
        if (products [i].productId === product.productId)
-       products.splice(i, 1);
-       break;
+             products.splice(i, 1);
+            break;
    }
 
 
@@ -40,7 +41,8 @@ export class ProductService {
     }
 
     getProducts () {
-        this.products = this.db.list('products');
+        this.products = this.db.list('products');      
+
         return this.products;
     }
 

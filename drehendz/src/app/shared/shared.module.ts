@@ -6,7 +6,6 @@ import { AgmCoreModule } from "@agm/core";
 import { FormsModule, FormBuilder } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AngularFireModule } from 'angularfire2';
-import { FireBaseConfig } from 'src/environments/firebaseConfig';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {  RouterModule } from '@angular/router';
@@ -24,6 +23,7 @@ import  {NgxContentLoadingModule} from "ngx-content-loading";
 import  { MomentTimeAgoPipe } from './pipes/moment-time-ago-pipe';
 import { CommonModule } from '@angular/common';
 import { AngularFirestore } from '@angular/fire/firestore';
+import {environment} from './../../environments/environment';
 @NgModule({
     imports: [ 
         CommonModule,
@@ -33,7 +33,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
         AngularFireAuthModule,
         AngularFireDatabaseModule,
          FormsModule,
-         AngularFireModule.initializeApp(FireBaseConfig), 
+         AngularFireModule.initializeApp(environment.firebase), 
          HttpClientModule ,
          FormsModule,
          OwlModule, 
@@ -67,6 +67,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
         NgxContentLoadingModule,
         CardLoaderComponent,
   ] ,
-    providers: [ AngularFirestore,   AuthService, AuthGuard, AdminGaurd, ProductService, UserService, FormBuilder]
+    providers: [ AuthService, AuthGuard, AdminGaurd, ProductService, UserService, FormBuilder]
 })
 export class SharedModule{}

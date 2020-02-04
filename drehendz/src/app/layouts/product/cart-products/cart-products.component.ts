@@ -23,7 +23,6 @@ export class CartProductsComponent implements OnInit {
   }
   removeCartProduct(product: Product) {
     this.productService.removeLocalCartProduct(product);
-    
     this.getCartProduct()
     }
 

@@ -16,7 +16,7 @@ export const checkoutRoutes: Routes = [
             {
                 path: '',
                 component: ProductsComponent,
-                outlet: 'checkOutLet'
+                outlet: 'checkOutlet'
             },
             {
                 path: 'shipping-details',
