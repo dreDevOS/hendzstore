@@ -65,8 +65,8 @@ aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigat
           <li class="nav-item dropdown" *ngIf="authService.isLoggedIn()" >
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{dispayName}}</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" routerLink="/">My Orders</a>
-              <a class="dropdown-item" *ngIf="authService.isAdmin()" routerLink="/">Manage Orders</a>
+              <a class="dropdown-item" *ngIf="authService.isAdmin()"routerLink="/">Manage Orders</a>
+              <a class="dropdown-item" *ngIf="authService.isAdmin()" [routerLink]="['/products/all-products']">Manage Products</a>
               <a class="dropdown-item" (click)="logout()">Log out</a>
 
               </div>
