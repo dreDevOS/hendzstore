@@ -12,7 +12,7 @@ export class FavoriteProductsComponent implements OnInit {
   showDataNotFound = true;
 
   //Not Found Message
-  messageTitile = 'No Favorite Products Found';
+  messageTitle = 'No Favorite Products Found';
   messageDescription = 'Please, choose your favorite products';
 
   constructor(private productService: ProductService) { }
@@ -22,5 +22,10 @@ export class FavoriteProductsComponent implements OnInit {
   }
 getFavoriteProduct(){
   this.favoriteProducts = this.productService.getLocalFavoriteProducts();
+}
+removeFavorite(product: Product) {
+  this.productService.removeLocalFavorite(product);
+
+  this.getFavoriteProduct();
 }
 }

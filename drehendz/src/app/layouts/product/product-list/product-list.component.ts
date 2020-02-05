@@ -16,7 +16,7 @@ productList: Product [];
 loading = false;
 brands = ['All', 'drehendz', 'Apple' ]
 
-selectBrand: 'All';
+selectedBrand: 'All';
 
 page= 1;
 
