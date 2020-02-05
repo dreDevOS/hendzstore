@@ -2,7 +2,7 @@ import { Injectable } from  '@angular/core';
 import { Observable} from 'rxjs';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {User} from '../../app/shared/models/user'
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from "firebase/app";
 import { UserService } from '../shared/services/user.service';
 
@@ -18,7 +18,8 @@ export class AuthService
 constructor(
   private afAuth: AngularFireAuth,
   private router: Router,
-  private userService : UserService)
+  private userService : UserService, 
+  private route: ActivatedRoute)
 
 {
   this.user = afAuth.authState;
@@ -95,6 +96,7 @@ return this.afAuth.auth.signInWithEmailAndPassword(email, password);}
 
 signInWithGoogle()
 {
+  let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
   return this.afAuth.auth.signInWithPopup(
     new firebase.auth.GoogleAuthProvider()
   );

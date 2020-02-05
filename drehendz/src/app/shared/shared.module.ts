@@ -22,7 +22,6 @@ import  {MDBBootstrapModule} from "angular-bootstrap-md";
 import  {NgxContentLoadingModule} from "ngx-content-loading";
 import  { MomentTimeAgoPipe } from './pipes/moment-time-ago-pipe';
 import { CommonModule } from '@angular/common';
-import { AngularFirestore } from '@angular/fire/firestore';
 import {environment} from './../../environments/environment';
 @NgModule({
     imports: [ 

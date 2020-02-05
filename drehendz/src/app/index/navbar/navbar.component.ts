@@ -12,8 +12,6 @@ declare var $: any;
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  angularVersion = VERSION;
-
   constructor(
     public authService: AuthService,
     private themeService: ThemeService,
