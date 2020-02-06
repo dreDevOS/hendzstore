@@ -1,5 +1,4 @@
 import {Pipe, PipeTransform} from "@angular/core";
-import { pipe } from 'rxjs';
 
 declare var moment: any;
 
