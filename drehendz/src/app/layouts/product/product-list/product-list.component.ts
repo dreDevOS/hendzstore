@@ -13,10 +13,12 @@ import { ProductService } from 'src/app/shared/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 productList: Product [];
+//filteredProducts : any;
 loading = false;
 brands = ['All', 'drehendz', 'Apple' ]
 
 selectedBrand: 'All';
+
 
 page= 1;
 
@@ -29,6 +31,12 @@ page= 1;
   ngOnInit() {
     this.getAllProducts();
 
+  }
+  filterByBrand(query: string){
+    this.filteredProducts = (query) ? 
+    this.productList.filter(p => p.productName.toLowerCase().includes(query.toLowerCase())) : 
+    this.productList;
+    console.log(query);
   }
   getAllProducts() {
       this.loading = true;
@@ -51,6 +59,7 @@ page= 1;
 		this.productService.addToCart(product);
   }
   removeProduct(key: string) {
+    if(!confirm('are you sure you want to delete this product')) return;
 		this.productService.deleteProduct(key);
 	}
 }

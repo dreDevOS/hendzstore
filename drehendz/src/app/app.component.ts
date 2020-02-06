@@ -3,8 +3,6 @@ import { UserService } from './shared/services/user.service';
 import {fadeAnimation} from "./shared/animations/fadeIntRoute";
 import { AuthService } from './auth/auth.service';
 import { Router } from '@angular/router';
-
-
 declare var $: any;
 
 @Component({
