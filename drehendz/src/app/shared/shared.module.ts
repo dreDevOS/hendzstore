@@ -23,6 +23,7 @@ import  {NgxContentLoadingModule} from "ngx-content-loading";
 import  { MomentTimeAgoPipe } from './pipes/moment-time-ago-pipe';
 import { CommonModule } from '@angular/common';
 import {environment} from './../../environments/environment';
+import { CategoryService } from './services/category.service';
 @NgModule({
     imports: [ 
         CommonModule,
@@ -66,6 +67,6 @@ import {environment} from './../../environments/environment';
         NgxContentLoadingModule,
         CardLoaderComponent,
   ] ,
-    providers: [ AuthService, AuthGuard, AdminGaurd, ProductService, UserService, FormBuilder]
+    providers: [ AuthService, AuthGuard, AdminGaurd, ProductService, UserService, FormBuilder, CategoryService]
 })
 export class SharedModule{}

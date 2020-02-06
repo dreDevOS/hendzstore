@@ -3,6 +3,7 @@ import { Product } from '../../../shared/models/product';
 import {AuthService} from '../../../auth/auth.service';
 import {ToastrService} from 'src/app/shared/services/toastr.service';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { CategoryService } from 'src/app/shared/services/category.service';
 
 
 
@@ -16,7 +17,6 @@ productList: Product [];
 //filteredProducts : any;
 loading = false;
 brands = ['All', 'drehendz', 'Apple' ]
-
 selectedBrand: 'All';
 
 
@@ -26,15 +26,17 @@ page= 1;
     private productService: ProductService,
     public authService: AuthService,
     private toastrService: ToastrService,
-    ) { }
+    private categoryService: CategoryService
+    ) { 
+    }
 
   ngOnInit() {
     this.getAllProducts();
 
   }
   filterByBrand(query: string){
-    this.filteredProducts = (query) ? 
-    this.productList.filter(p => p.productName.toLowerCase().includes(query.toLowerCase())) : 
+    //this.filteredProducts = (query) ? 
+    this.productList.filter(p => p.productName.toLowerCase().includes(query.toLowerCase())) 
     this.productList;
     console.log(query);
   }
