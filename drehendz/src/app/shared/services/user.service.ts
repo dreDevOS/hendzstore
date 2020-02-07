@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
-import { AngularFireList} from "angularfire2/database";
-import {AngularFireDatabase} from "angularfire2/database";
+import { AngularFireList, AngularFireDatabase} from "angularfire2/database";
 import { User } from '../models/user';
+import * as moment from "moment";
+
   
  
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
   selectedUser: User = new User ();
   users: AngularFireList<User>;
 
   location = { lat: null,
-           lon: null};
+               lon: null};
 
 
   constructor(private db: AngularFireDatabase)
@@ -28,10 +30,12 @@ export class UserService {
      this.users = this.db.list("clients");
      return this.users;
 
+     
    }
    createUser(data: any) 
    {
      data.location = this.location;
+     data.createdOn = moment(new Date()).format("X");
      data.isAdmin = false;
      this.users.push(data);
    }
@@ -39,11 +43,19 @@ export class UserService {
 
    isAdmin(emailId: string) 
    {
-     return this.db.list("clients", ref => ref.orderByChild("email").equalTo(emailId));
+     return this.db.list("clients", ref =>
+      ref.orderByChild("email").equalTo(emailId));
    }
 
-   updateUser( user: User) {this.users.update(user.$key, user);}
+   updateUser( user: User){
+     this.users.update(user.$key, user);
+    }
 
-   setLocation(lat, lon) {this.location.lat = lat;
-  this.location.lon = lon}
+
+     setLocation(lat, lon)
+      {
+        this.location.lat = lat;
+        this.location.lon = lon
+
+     }
 }
