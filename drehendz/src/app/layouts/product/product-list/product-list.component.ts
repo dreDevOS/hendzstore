@@ -4,6 +4,7 @@ import {AuthService} from '../../../auth/auth.service';
 import {ToastrService} from 'src/app/shared/services/toastr.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { CategoryService } from 'src/app/shared/services/category.service';
+import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 
 
 
@@ -26,6 +27,7 @@ page= 1;
     private productService: ProductService,
     public authService: AuthService,
     private toastrService: ToastrService,
+    private cartService: ShoppingCartService,
     private categoryService: CategoryService
     ) { 
     }
@@ -50,17 +52,16 @@ page= 1;
     y['$key'] = element.key;
   this.productList.push(y as Product);
  });
-},
-(err) => {
-  this.toastrService.error('Error while fetching Products', err);
 }
+
   );
   }
   addFavorite(product: Product) {
 		this.productService.addFavoriteProduct(product);
   }
   addToCart(product: Product) {
-		this.productService.addToCart(product);
+    this.productService.addToCart(product);
+		this.cartService.addToCart(product);
   }
   removeProduct(key: string) {
     if(!confirm('are you sure you want to delete this product')) return;

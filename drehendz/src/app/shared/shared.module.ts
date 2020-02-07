@@ -68,15 +68,18 @@ import { ShoppingCartService } from './services/shopping-cart.service';
         NgxContentLoadingModule,
         CardLoaderComponent,
   ] ,
-    providers: [
-     AuthService,
-    AuthGuard, 
-    AdminGaurd,
-    ProductService,
-    UserService,
-   FormBuilder,
-    CategoryService,
-   ShoppingCartService 
-]
+    providers:
+     [
+
+       AuthService,
+       AuthGuard, 
+       AdminGaurd,
+       ProductService,
+       UserService,
+       FormBuilder,
+       CategoryService,
+       ShoppingCartService 
+     ]
+
 })
 export class SharedModule{}
