@@ -54,13 +54,13 @@ page= 1;
  });
 }
 
+
   );
   }
   addFavorite(product: Product) {
 		this.productService.addFavoriteProduct(product);
   }
   addToCart(product: Product) {
-    this.productService.addToCart(product);
 		this.cartService.addToCart(product);
   }
   removeProduct(key: string) {

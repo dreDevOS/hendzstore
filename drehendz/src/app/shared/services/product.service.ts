@@ -50,7 +50,7 @@ export class ProductService {
         this.products.push(data);
     }
     getProductById(key: string) {
-        this.product = this.db.object('products/' + key);
+        this.product = this.db.object('/products/' + key);
         return this.product;
     }
 
