@@ -5,6 +5,7 @@ import {User} from '../../app/shared/models/user'
 import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from "firebase/app";
 import { UserService } from '../shared/services/user.service';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({providedIn: 'root'})
@@ -14,6 +15,10 @@ export class AuthService
   userDetails: firebase.User = null;
   loggedUser;
   dbUser;
+  emailSent: false;
+
+
+  
 
 constructor(
   private afAuth: AngularFireAuth,
@@ -40,6 +45,7 @@ constructor(
         });
       } else {this.userDetails = null;
       }
+      
 
     });
 }
@@ -51,18 +57,15 @@ isLoggedIn(): boolean {
   }
 }
 
-createUserWithEmailAndPassword(emailID: string, password: string) 
+  async  createUserWithEmailAndPassword(emailID: string, password: string) 
 {
-  return this.afAuth.auth.createUserWithEmailAndPassword( 
-    emailID,
-     password
-     );
+   await this.afAuth.auth.createUserWithEmailAndPassword(emailID, password );
+   this.sendEmailVerification();
+
 }
-sendVerification(){
-  return this.afAuth.auth.currentUser.sendEmailVerification()
-  .then(() => {
-    this.router.navigate(['/'])
-  })
+async sendEmailVerification() {
+  await this.afAuth.auth.currentUser.sendEmailVerification()
+  this.router.navigate(['/']);
 }
 
 getLoggedInUser(): User {
@@ -113,7 +116,9 @@ logout(){
   this.loggedUser = null;
   this.afAuth.auth.signOut().then(res =>this.router.navigate(["/"]) );
 }
-
+   //reset user password just create a link in the login page for next update.
+    // async sendPasswordResetEmail(passwordResetEmail: string) {
+    // return await this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail); }
 }
  
  
