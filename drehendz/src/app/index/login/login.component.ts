@@ -17,10 +17,7 @@ declare var $: any;
 export class LoginComponent implements OnInit {
 
 
-  user= {
-    emailId: "",
-    loginPassword:""
-  };
+  user= { emailId: "",  loginPassword:"" };
 
   errorInUserCreate= false;
   errorMessage: any;
@@ -32,9 +29,10 @@ export class LoginComponent implements OnInit {
     private toastService: ToastrService,
     private router: Router,
     private route: ActivatedRoute
-  ) { 
+  )
+   { 
     this.createUser = new User();
-  }
+   }
 
   ngOnInit() {}
 
@@ -60,7 +58,8 @@ export class LoginComponent implements OnInit {
        .catch((err)  =>{this.errorInUserCreate = true;
         this.errorMessage = err;
       //this.toastService.error("Error while Creating User", err);
-    });
+    })
+    this.authService.sendVerification();
   }
   
 

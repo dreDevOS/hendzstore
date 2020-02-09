@@ -5,7 +5,6 @@ import {User} from '../../app/shared/models/user'
 import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from "firebase/app";
 import { UserService } from '../shared/services/user.service';
-import { map } from 'rxjs/operators';
 
 
 @Injectable({providedIn: 'root'})
@@ -15,10 +14,6 @@ export class AuthService
   userDetails: firebase.User = null;
   loggedUser;
   dbUser;
-  emailSent: false;
-
-
-  
 
 constructor(
   private afAuth: AngularFireAuth,
@@ -45,7 +40,6 @@ constructor(
         });
       } else {this.userDetails = null;
       }
-      
 
     });
 }
@@ -57,14 +51,13 @@ isLoggedIn(): boolean {
   }
 }
 
-    createUserWithEmailAndPassword(emailID: string, password: string) 
+createUserWithEmailAndPassword(emailID: string, password: string) 
 {
-    this.afAuth.auth.createUserWithEmailAndPassword(emailID, password );
-
+ return this.afAuth.auth.createUserWithEmailAndPassword(emailID, password )
 }
- sendEmailVerification() {
-  this.afAuth.auth.currentUser.sendEmailVerification()
-  this.router.navigate(['/']);
+sendVerification(){
+  return this.afAuth.auth.currentUser.sendEmailVerification()
+ 
 }
 
 getLoggedInUser(): User {
@@ -115,9 +108,7 @@ logout(){
   this.loggedUser = null;
   this.afAuth.auth.signOut().then(res =>this.router.navigate(["/"]) );
 }
-   //reset user password just create a link in the login page for next update.
-    // async sendPasswordResetEmail(passwordResetEmail: string) {
-    // return await this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail); }
+
 }
  
  
