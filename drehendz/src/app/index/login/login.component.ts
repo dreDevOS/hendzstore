@@ -49,20 +49,18 @@ export class LoginComponent implements OnInit {
     verified_email: res.user.emailVerified,
     phoneNumber: res.user.phoneNumber,
     picture: res.user.photoURL};
-
-         this.userService.createUser(user);
-
-     this.toastService.success("Registering", "User Registerion");
-           setTimeout((router: Router)   => {
-            $("#createdUserForm").modal("hide");
-            this.router.navigate(["/"]);        
-            
-           }, 
-           1500); 
+    this.userService.createUser(user);
+    //this.toastService.success("Registering", "User Registerion");
+      setTimeout((router: Router)   => {
+      $("#createdUserForm").modal("hide");
+       this.router.navigate(["/"]);        
+       }, 
+       1500); 
           })
-         .catch((err)  =>{this.errorInUserCreate = true;
+       .catch((err)  =>{this.errorInUserCreate = true;
         this.errorMessage = err;
-      this.toastService.error("Error while Creating User", err);});
+      //this.toastService.error("Error while Creating User", err);
+    });
   }
   
 
