@@ -57,14 +57,13 @@ isLoggedIn(): boolean {
   }
 }
 
-  async  createUserWithEmailAndPassword(emailID: string, password: string) 
+    createUserWithEmailAndPassword(emailID: string, password: string) 
 {
-   await this.afAuth.auth.createUserWithEmailAndPassword(emailID, password );
-   this.sendEmailVerification();
+    this.afAuth.auth.createUserWithEmailAndPassword(emailID, password );
 
 }
-async sendEmailVerification() {
-  await this.afAuth.auth.currentUser.sendEmailVerification()
+ sendEmailVerification() {
+  this.afAuth.auth.currentUser.sendEmailVerification()
   this.router.navigate(['/']);
 }
 
