@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
            setTimeout((router: Router)   => {
             $("#createdUserForm").modal("hide");
             this.router.navigate(["/"]);        
+            
            }, 
            1500); 
           })

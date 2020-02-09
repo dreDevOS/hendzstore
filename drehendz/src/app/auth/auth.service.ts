@@ -43,6 +43,7 @@ constructor(
 
     });
 }
+
 isLoggedIn(): boolean {
   if(this.userDetails !== null) 
   {
@@ -56,6 +57,12 @@ createUserWithEmailAndPassword(emailID: string, password: string)
     emailID,
      password
      );
+}
+sendVerification(){
+  return this.afAuth.auth.currentUser.sendEmailVerification()
+  .then(() => {
+    this.router.navigate(['/'])
+  })
 }
 
 getLoggedInUser(): User {
