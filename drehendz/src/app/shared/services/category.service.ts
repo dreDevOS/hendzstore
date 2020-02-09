@@ -5,14 +5,12 @@ import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
   providedIn: 'root'
 })
 export class CategoryService {
-  category: any;
 
 
   constructor( private db: AngularFireDatabase) { }
 
   getAll(){
-     this.db.list('/categories');
-     return this.category;
+    return  this.db.list('/categories');
   }
 
 }

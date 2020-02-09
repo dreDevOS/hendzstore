@@ -19,6 +19,7 @@ productList: Product [];
 loading = false;
 brands = ['All', 'drehendz', 'Apple' ]
 selectedBrand: 'All';
+catergories$
 
 
 page= 1;
@@ -29,13 +30,16 @@ page= 1;
     private toastrService: ToastrService,
     private cartService: ShoppingCartService,
     private categoryService: CategoryService
-    ) { 
-    }
+    )
+     { }
 
   ngOnInit() {
     this.getAllProducts();
 
   }
+
+
+
   filterByBrand(query: string){
     //this.filteredProducts = (query) ? 
     this.productList.filter(p => p.productName.toLowerCase().includes(query.toLowerCase())) 
@@ -66,5 +70,9 @@ page= 1;
   removeProduct(key: string) {
     if(!confirm('are you sure you want to delete this product')) return;
 		this.productService.deleteProduct(key);
-	}
+  }
+  category(){
+
+    this.catergories$ =  this.categoryService.getAll();
+  }
 }

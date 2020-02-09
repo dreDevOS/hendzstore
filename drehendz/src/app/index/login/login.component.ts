@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
     this.authService
     .signInRegular(userForm.value["emailId"], userForm.value["loginPassword"])
     .then((res)   => {
-      this.toastService.success("Authentication Success", "Logging in please wait");
+     // this.toastService.success("Authentication Success", "Logging in please wait");
 
       const returnUrl = this.route.snapshot.queryParamMap.get("returnUrl");
 
@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
   })
   
   .catch((err) => {
-    this.toastService.error("Authentication Failed", "Invalid Credentials, Please Check your credentials");
+   // this.toastService.error("Authentication Failed", "Invalid Credentials, Please Check your credentials");
   });
 
   }
