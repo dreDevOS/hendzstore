@@ -28,7 +28,7 @@ private getItem(cartId: string, product: string) {
   return this.db.object('/shopping-carts/' + cartId + '/items/' + product);
 }
 
-private async  getOrCreateCartId(){
+private async getOrCreateCartId(){
 let cartId = localStorage.getItem('cartId');
 if(cartId) return cartId;
  
@@ -39,12 +39,10 @@ let result = await this.create();
 }
 
 
- async  addToCart(product: Product){
+async addToCart(product: Product){
    
-        let cartId = await this.getOrCreateCartId();
-        let item =   this.getItem(cartId, product.$key);
-       
-        
- }
+
+  
+}
      
 }

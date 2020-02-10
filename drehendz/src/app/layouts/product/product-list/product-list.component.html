@@ -18,14 +18,14 @@
                 </select>
             </div>
          <ul class="list-group">
-             <li *ngFor="let category of catergories$ | async" class="list-group-item">  {{category.name}} </li>
+             <li *ngFor="let category of catergories | async" class="list-group-item">  {{category.name}} </li>
              <!--li class="list-group-item">high end technology</li-->
              <!--li class="list-group-item">mobile device service</li-->
 
          </ul>
 
         </div>
-        <div class="col-md-9">
+            <div class="col-md-9">
             
         
             <!--input
@@ -103,7 +103,7 @@
            </div>
        </div>
 
-        </div>
+             </div>
     </div>
 </div>
 <app-add-product></app-add-product>

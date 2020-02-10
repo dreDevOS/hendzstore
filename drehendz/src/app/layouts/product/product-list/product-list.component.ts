@@ -19,8 +19,7 @@ productList: Product [];
 loading = false;
 brands = ['All', 'drehendz', 'Apple' ]
 selectedBrand: 'All';
-catergories$
-
+categories: any;
 
 page= 1;
 
@@ -65,14 +64,15 @@ page= 1;
 		this.productService.addFavoriteProduct(product);
   }
   addToCart(product: Product) {
-		this.cartService.addToCart(product);
+    this.productService.addToCart(product);
+	   this.cartService.addToCart(product);
   }
   removeProduct(key: string) {
     if(!confirm('are you sure you want to delete this product')) return;
 		this.productService.deleteProduct(key);
   }
   category(){
-
-    this.catergories$ =  this.categoryService.getAll();
+   return this.categoryService.getCategories();
+    
   }
 }
