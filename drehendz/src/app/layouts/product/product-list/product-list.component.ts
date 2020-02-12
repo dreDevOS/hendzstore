@@ -64,15 +64,15 @@ page= 1;
 		this.productService.addFavoriteProduct(product);
   }
   addToCart(product: Product) {
-    this.productService.addToCart(product);
-	   this.cartService.addToCart(product);
+   //  this.cartService.addToCart(product);
+     this.productService.addToCart(product);
   }
   removeProduct(key: string) {
     if(!confirm('are you sure you want to delete this product')) return;
 		this.productService.deleteProduct(key);
   }
   category(){
-   return this.categoryService.getCategories();
+   this.categoryService.getCategories();
     
   }
 }

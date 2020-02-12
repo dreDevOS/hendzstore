@@ -3,27 +3,15 @@ import {AngularFireDatabase, AngularFireList, AngularFireObject} from 'angularfi
 import {Product} from '../models/product';
 import {AuthService} from '../../auth/auth.service';
 import {ToastrService} from './toastr.service';
+import { ShoppingCartService } from './shopping-cart.service';
 
 
 @Injectable ()
 export class ProductService {
-  removeLocalCartProduct(product: Product) {
-    const products: Product[] = JSON.parse(localStorage.getItem('avct_item'));
-     console.log(products);
-
-      for (let i = 0; i<products.length; i++) {
-       if (products [i].productId === product.productId)
-             products.splice(i, 1);
-            break;
-   }
-
-
-  }
+  
+   
     products: AngularFireList<Product>;
     product: AngularFireObject<Product>;
-
-
-
 
     favoriteProducts: AngularFireList<FavoriteProduct>;
     cartProducts: AngularFireList<FavoriteProduct>
@@ -34,8 +22,9 @@ export class ProductService {
     constructor(
         private db: AngularFireDatabase,
         private authService: AuthService,
-        private toastrService: ToastrService
-    ){
+        private toastrService: ToastrService,
+    )
+    {
         this.calculateLocalFavProdCounts();
         this.calculateLocalCartProdCounts();
     }
@@ -115,22 +104,23 @@ calculateLocalFavProdCounts() {
 }
 
 
-addToCart(data: Product): void {
+addToCart(product: Product): void {
     let a: Product[];
 
-    a= JSON.parse(localStorage.getItem('avct_item')) || [];
-
-    a.push(data);
+   a= JSON.parse(localStorage.getItem('cartId')) || [];
+    a.push(product);
     
     setTimeout(()   => {
-        localStorage.setItem('avct_item', JSON.stringify(a));
+        localStorage.setItem('cartId', JSON.stringify(a));
         this.calculateLocalCartProdCounts();
 
     }, 500);
+
+    
 }
 
     getLocalCartProducts(): Product[] {
-        const products: Product [] = JSON.parse(localStorage.getItem('avct_item')) || [];
+        const products: Product [] = JSON.parse(localStorage.getItem('cartId')) || [];
 
         return products;
     }
@@ -139,6 +129,19 @@ addToCart(data: Product): void {
         this.navbarCartCount = this.getLocalCartProducts().length;
     }
 
+    removeLocalCartProduct(product: Product) {
+        const products: Product[] = JSON.parse(localStorage.getItem('cartId'));
+         console.log(products);
+    
+          for (let i = 0; i<products.length; i++) {
+           if (products [i].productId === product.productId){
+            products.splice(i, 1);
+            break;
+           }
+       }
+    
+    
+      }
 
 }
 
