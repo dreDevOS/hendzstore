@@ -27,6 +27,6 @@ export class CartProductsComponent implements OnInit {
     }
 
     getCartProduct(){
-     // this.cartProducts = this.productService.getLocalCartProducts();
+      this.cartProducts = this.productService.getLocalCartProducts();
     }
 }
