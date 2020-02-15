@@ -16,11 +16,13 @@ constructor (private db: AngularFireDatabase){
 
 }
 getshippings(){
-    this.shippings = this.db.list("shippings")
+    this.shippings = this.db.list("shippings");
+    console.log(this.getshippings);
     return this.shippings;
 }
 createshippings(data: Billing) {
-    this.shippings.push(data);
+    // need to fix the create  shipping method in the shipping  service in next update 
+ //  this.shippings.push(data);
 
 }
 getshippingsById(key: string) {

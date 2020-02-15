@@ -25,6 +25,7 @@ import { CommonModule } from '@angular/common';
 import {environment} from './../../environments/environment';
 import { CategoryService } from './services/category.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
+
 @NgModule({
     imports: [ 
         CommonModule,

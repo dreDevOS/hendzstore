@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {ProductService} from 'src/app/shared/services/product.service';
 import {Product} from 'src/app/shared/models/product';
-import { Router } from '@angular/router';
 
 
 declare var $: any;
@@ -36,7 +35,7 @@ product: Product = new Product ();
     productForm.value['favorite']= false;
 
     const date = productForm.value ['productAdded'];
-
+ 
 
     this.productService.createProduct(productForm.value);
 

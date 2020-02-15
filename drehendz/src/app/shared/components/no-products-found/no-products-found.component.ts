@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NoProductsFoundComponent implements OnInit {
    @Input("title") title: String;
-  @Input("description") description: String;
+   @Input("description") description: String;
 
   constructor() { }
 

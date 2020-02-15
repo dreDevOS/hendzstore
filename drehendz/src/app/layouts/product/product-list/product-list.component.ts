@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../shared/models/product';
 import {AuthService} from '../../../auth/auth.service';
-import {ToastrService} from 'src/app/shared/services/toastr.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { CategoryService } from 'src/app/shared/services/category.service';
-import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs';
+
 
 
 
@@ -13,24 +14,28 @@ import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.servi
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
+
+
 export class ProductListComponent implements OnInit {
 productList: Product [];
-//filteredProducts : any;
 loading = false;
-brands = ['All', 'drehendz', 'Apple' ]
+brands = ['All', 'drehendz', 'Apple', 'Samsung', 'LG' ]
 selectedBrand: 'All';
-categories: any;
-
 page= 1;
+categories: Observable<any[]>;
 
   constructor(
     private productService: ProductService,
     public authService: AuthService,
-    private toastrService: ToastrService,
-    private cartService: ShoppingCartService,
-    private categoryService: CategoryService
+    public categoryService: CategoryService,
+    private db: AngularFireDatabase
     )
-     { }
+     { 
+      
+      
+       this.categories = categoryService.getCategories() ;  
+       console.log(this.categories)
+     }
 
   ngOnInit() {
     this.getAllProducts();
@@ -39,12 +44,6 @@ page= 1;
 
 
 
-  filterByBrand(query: string){
-    //this.filteredProducts = (query) ? 
-    this.productList.filter(p => p.productName.toLowerCase().includes(query.toLowerCase())) 
-    this.productList;
-    console.log(query);
-  }
   getAllProducts() {
       this.loading = true;
     const x = this.productService.getProducts ();
@@ -64,15 +63,14 @@ page= 1;
 		this.productService.addFavoriteProduct(product);
   }
   addToCart(product: Product) {
-    this.productService.addToCart(product);
-	   this.cartService.addToCart(product);
+   //  this.cartService.addToCart(product);
+     this.productService.addToCart(product);
   }
   removeProduct(key: string) {
     if(!confirm('are you sure you want to delete this product')) return;
 		this.productService.deleteProduct(key);
   }
-  category(){
-   return this.categoryService.getCategories();
-    
-  }
+
+  
+
 }

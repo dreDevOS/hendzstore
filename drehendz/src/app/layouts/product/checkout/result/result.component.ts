@@ -21,7 +21,7 @@ export class ResultComponent implements OnInit {
     document.getElementById('productsTab').style.display = 'none';
     document.getElementById('shippingTab').style.display = 'none';
     document.getElementById('billingTab').style.display = 'none';
-    document.getElementById('resulttab').style.display = 'block';
+    document.getElementById('resultTab').style.display = 'block';
 
     this.products = productService.getLocalCartProducts();
 

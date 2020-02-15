@@ -66,7 +66,7 @@ export class ShippingDetailsComponent implements OnInit {
 
     this.shippingService.createshippings(data);
 
-    this.router.navigate(['checkouts', {outlets: {checkOutelet: ['billing-details'] }}]);
+    this.router.navigate(['checkouts', {outlets: {checkOutlet: ['billing-details'] }}]);
   }
 
 }

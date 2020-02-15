@@ -18,20 +18,13 @@
                 </select>
             </div>
          <ul class="list-group">
-             <li *ngFor="let category of categories | async" class="list-group-item">  {{category.name}} </li>
-             <!--li class="list-group-item">high end technology</li-->
-             <!--li class="list-group-item">mobile device service</li-->
-
-         </ul>
+             <li class="list-group-item" *ngFor="let category of categories | async"> {{category.name}} </li>
+      </ul>
 
         </div>
             <div class="col-md-9">
             
-        
-            <!--input
-            #query
-            (keyup) ="filterByBrand(query.value)"
-             type="text" class="form-control" placeholder="search.."-->
+    
 
        <div class="container">
            <app-card-loader [loop]="3" [height]="800" *ngIf="loading"></app-card-loader>

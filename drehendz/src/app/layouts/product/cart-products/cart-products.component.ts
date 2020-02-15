@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/models/product';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 
 
 @Component({
@@ -16,14 +17,13 @@ export class CartProductsComponent implements OnInit {
   messageTitle = 'No Products Found in Cart';
 	messageDescription = 'Please, Add Products to Cart';
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private cartService: ShoppingCartService) { }
 
   ngOnInit() {
     this.getCartProduct();
   }
   removeCartProduct(product: Product) {
-    this.productService.removeLocalCartProduct(product);
-    this.getCartProduct()
+    this.cartService.removeLocalCartProduct(product);
     }
 
     getCartProduct(){
