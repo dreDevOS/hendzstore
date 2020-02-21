@@ -1,16 +1,28 @@
 {
   "hosting": {
+
     "public": "dist/drehendz",
+
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**" 
     ],
+
+
     "rewrites": [
       {
         "source": "**",
         "destination": "/index.html"
       }
-    ]
+     ],
+
+
+    "redirects": [
+      {
+        "source": "/firebase/**",
+        "destination": "https://firebase.google.com/"
+    }
+  ]
   }
 }

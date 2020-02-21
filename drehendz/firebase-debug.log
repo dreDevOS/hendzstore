@@ -1,0 +1,25 @@
+[debug] [2020-02-20T19:13:29.162Z] ----------------------------------------------------------------------
+[debug] [2020-02-20T19:13:29.193Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\user\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-02-20T19:13:29.193Z] CLI Version:   7.13.0
+[debug] [2020-02-20T19:13:29.193Z] Platform:      win32
+[debug] [2020-02-20T19:13:29.193Z] Node Version:  v10.15.1
+[debug] [2020-02-20T19:13:29.209Z] Time:          Thu Feb 20 2020 11:13:29 GMT-0800 (Pacific Standard Time)
+[debug] [2020-02-20T19:13:29.209Z] ----------------------------------------------------------------------
+[debug] [2020-02-20T19:13:29.209Z] 
+[debug] [2020-02-20T19:13:29.256Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-20T19:13:29.256Z] > authorizing via signed-in user
+[debug] [2020-02-20T19:13:29.256Z] [iam] checking project drehendz for permissions ["firebase.projects.get"]
+[debug] [2020-02-20T19:13:29.271Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/drehendz:testIamPermissions  
+
+[debug] [2020-02-20T19:13:30.104Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-20T19:13:30.111Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/drehendz  
+ 
+[debug] [2020-02-20T19:13:30.799Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\user\hendzstore\drehendz'...
+[info] 
+[debug] [2020-02-20T19:13:30.812Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/drehendz/webApps/-/config  
+ 
+[debug] [2020-02-20T19:13:31.339Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: dist/drehendz
+[info] +  hosting: Local server: http://localhost:5000
