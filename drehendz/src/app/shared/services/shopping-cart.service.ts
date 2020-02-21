@@ -65,12 +65,12 @@ let result = await this.create();
   
 }
   calculateLocalCartProdCounts() {
-//    this.navbarCartCount = this.getLocalCartProducts().length;
+    this.navbarCartCount = this.getLocalCartProducts().length;
   }
   getLocalCartProducts() {
- //   const products: Product [] = JSON.parse(localStorage.getItem('cartId')) || [];
+    const products: Product [] = JSON.parse(localStorage.getItem('cartId')) || [];
    
- //   return products; 
+    return products; 
   
   }
 

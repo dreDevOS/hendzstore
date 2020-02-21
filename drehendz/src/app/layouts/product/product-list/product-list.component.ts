@@ -70,7 +70,14 @@ categories: Observable<any[]>;
     if(!confirm('are you sure you want to delete this product')) return;
 		this.productService.deleteProduct(key);
   }
+<<<<<<< HEAD
 
   
 
+=======
+  category(){
+   this.categoryService.getCategories();
+    
+  }
+>>>>>>> 06dc8374284c4553c2d72dc1a797566584e7ec35
 }
