@@ -16,7 +16,6 @@ categoryRef: AngularFireList<Category> = null;
 
 
 constructor(private db: AngularFireDatabase) {
-  this.categoryRef = db.list(this.dbPath);
  }
 
  createCatergory(category: Category): void {
