@@ -14,27 +14,30 @@ export class BestProductComponent implements OnInit {
   options: any;
   loading = false;
 
-  constructor(
-    private toasterService: ToastrService, 
-   private productService: ProductService
-    ) { }
+  constructor( private toasterService: ToastrService, private productService: ProductService){}
 
 
   ngOnInit() {
-    this.options = {
-      dots: false,
-      responsive: {
-        '0': {items: 1, margin: 5},
-        '430': {items:2, margin: 5},
-        '550': {items:3, margin: 5},
-        '670': {items:4, margin: 5}
-      },
+    this.options = 
+    {
+         dots: false,
+         responsive:
+         {
+            '0': {items: 1, margin: 5},
+            '430': {items:2, margin: 5},
+            '550': {items:3, margin: 5},
+            '670': {items:4, margin: 5}
+          },
+
+
       autoplay: true,
       loop: true,
       autoplayTimeout: 3000,
       lazyLoad: true
     };
-    this.getAllProducts();
+
+
+       this.getAllProducts();
   }
   getAllProducts() {
     this.loading = true;
