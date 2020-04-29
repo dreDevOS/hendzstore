@@ -18,16 +18,16 @@ export class AppComponent
   title = "app";
 
 constructor( private auth: AuthService, router: Router, private userService: UserService){
-  auth.user.subscribe(user => {
-    if (user) {
-    let returnUrl =  localStorage.getItem('returnUrl');
-    if(!user) return;
+  // auth.user.subscribe(user => {
+  //   if (user) {
+  //   let returnUrl =  localStorage.getItem('returnUrl');
+  //   if(!user) return;
 
 
-    localStorage.removeItem('returnUrl');
-    router.navigateByUrl(returnUrl);
-    }
-  });
+  //   localStorage.removeItem('returnUrl');
+  //   router.navigateByUrl(returnUrl);
+  //   }
+  // });
 }
 
 

@@ -19,7 +19,7 @@ import { Observable } from 'rxjs';
 export class ProductListComponent implements OnInit {
 productList: Product [];
 loading = false;
-brands = ['All', 'drehendz', 'Apple', 'Samsung', 'LG' ]
+brands = ['All', 'Boohoo', 'Charlotte Russe', 'Delicacy']
 selectedBrand: 'All';
 page= 1;
 categories: Observable<any[]>;
