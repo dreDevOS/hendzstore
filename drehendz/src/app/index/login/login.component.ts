@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import {NgForm, EmailValidator} from "@angular/forms";
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/shared/models/user';
@@ -24,47 +24,49 @@ export class LoginComponent implements OnInit {
   createUser;
 
   constructor(
-    private authService: AuthService,
+    private auth: AuthService,
     private userService: UserService,
     private toastService: ToastrService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    // private afAuth: AngularFireAuth
   )
    { 
     this.createUser = new User();
+    
    }
 
   ngOnInit() {}
 
-  addUser(userForm: NgForm) {
-    userForm.value ["isAdmin"]= false;
-    this.authService
-    .createUserWithEmailAndPassword(userForm.value["emailId"], userForm.value["password"])
-    .then((res) => { const user ={
-    email: res.user.email,
-    famil_name: res.user.displayName,
-    uid: res.user.uid,
-    verified_email: res.user.emailVerified,
-    phoneNumber: res.user.phoneNumber,
-    picture: res.user.photoURL};
-    this.userService.createUser(user);
-    //this.toastService.success("Registering", "User Registerion");
-      setTimeout((router: Router)   => {
-      $("#createdUserForm").modal("hide");
-       this.router.navigate(["/"]);        
-       }, 
-       1500); 
-          })
-       .catch((err)  =>{this.errorInUserCreate = true;
-        this.errorMessage = err;
-      //this.toastService.error("Error while Creating User", err);
-    })
-    this.authService.sendVerification();
-  }
+  // addUser(userForm: NgForm) {
+  //   userForm.value ["isAdmin"]= false;
+  //   this.authService
+  //   .createUserWithEmailAndPassword(userForm.value["emailId"], userForm.value["password"])
+  //   .then((res) => { const user ={
+  //   email: res.user.email,
+  //   famil_name: res.user.displayName,
+  //   uid: res.user.uid,
+  //   verified_email: res.user.emailVerified,
+  //   phoneNumber: res.user.phoneNumber,
+  //   picture: res.user.photoURL};
+  //   this.userService.createUser(user);
+  //   //this.toastService.success("Registering", "User Registerion");
+  //     setTimeout((router: Router)   => {
+  //     $("#createdUserForm").modal("hide");
+  //      this.router.navigate(["/"]);        
+  //      }, 
+  //      1500); 
+  //         })
+  //      .catch((err)  =>{this.errorInUserCreate = true;
+  //       this.errorMessage = err;
+  //     //this.toastService.error("Error while Creating User", err);
+  //   })
+  //   this.authService.sendVerification();
+  // }
   
 
   signInWithEmail(userForm: NgForm){
-    this.authService
+    this.auth
     .signInRegular(userForm.value["emailId"], userForm.value["loginPassword"])
     .then((res)   => {
      // this.toastService.success("Authentication Success", "Logging in please wait");
@@ -85,20 +87,26 @@ export class LoginComponent implements OnInit {
 
 
 
-signInWithGoogle(){
-  this.authService 
-  .signInWithGoogle()
-  .then ((res) =>    {
-    if(res.additionalUserInfo.isNewUser){
-      this.userService.createUser(res.additionalUserInfo.profile);
-    }
-    const returnUrl = this.route.snapshot.queryParamMap.get("returnUrl");
-    location.reload();
-    this.router.navigate(["/"]);
-  })
-  .catch((err) => {
-    this.toastService.error("Error Occured", "Please try again later");
-  });
+// signInWithGoogle(){
+//   this.authService 
+//   .signInWithGoogle()
+//   .then ((res) =>    {
+//     if(res.additionalUserInfo.isNewUser){
+//       this.userService.createUser(res.additionalUserInfo.profile);
+//     }
+//     const returnUrl = this.route.snapshot.queryParamMap.get("returnUrl");
+//     location.reload();
+//     this.router.navigate(["/"]);
+//   })
+//   .catch((err) => {
+//     this.toastService.error("Error Occured", "Please try again later");
+//   });
   
+// }
+
+login(){
+  this.auth.login();
+
 }
+
 }

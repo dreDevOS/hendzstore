@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFireList, AngularFireDatabase} from "angularfire2/database";
-import { User } from '../models/user';
+import { AngularFireList, AngularFireDatabase, AngularFireObject} from "angularfire2/database";
+import { User, AppUser } from '../models/user';
 import * as moment from "moment";
+import * as firebase from 'firebase';
 
   
  
@@ -10,28 +11,33 @@ import * as moment from "moment";
 })
 export class UserService {
 
+
   selectedUser: User = new User ();
   users: AngularFireList<User>;
 
-  location = { lat: null,
-               lon: null};
+  location = { lat: null,lon: null};
 
 
-  constructor(private db: AngularFireDatabase)
-   
-  {
-   this.getUsers();
+  constructor(private db: AngularFireDatabase){
+    // this.getUsers();
+  }
+  
+  save(user: firebase.User){
+    this.db.object('/users/' + user.uid).update({
+      name: user.displayName,
+      email: user.email
+    });
+  }
 
-
-   }
-
-   getUsers()
-   {
-     this.users = this.db.list("clients");
-     return this.users;
-
-     
-   }
+  get(uid: string): AngularFireObject<AppUser> {
+    return this.db.object('/users/' + uid);
+  }
+  //  getUsers()
+  //  {
+  //    this.users = this.db.list("clients");
+  //    return this.users;
+ 
+  //  }
    createUser(data: any) 
    {
      data.location = this.location;

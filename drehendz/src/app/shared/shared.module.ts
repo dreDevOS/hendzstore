@@ -9,7 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {  RouterModule } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth_guard';
 import { ProductService } from './services/product.service';
 import { UserService } from './services/user.service';
@@ -49,7 +49,8 @@ import { ShoppingCartService } from './services/shopping-cart.service';
         CardLoaderComponent, 
         PageNotFoundComponent,
         NoProductsFoundComponent,
-         MomentTimeAgoPipe ],
+         MomentTimeAgoPipe,
+        ],
     exports: 
     [ 
         MDBBootstrapModule,

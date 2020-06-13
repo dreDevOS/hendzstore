@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User, UserDetail } from 'src/app/shared/models/user';
 import { Product } from 'src/app/shared/models/product';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { ShippingService } from 'src/app/shared/services/shipping.service';
 import { Router } from '@angular/router';
@@ -33,7 +33,7 @@ export class ShippingDetailsComponent implements OnInit {
     
     this.userDetail = new UserDetail();
 		this.products = productService.getLocalCartProducts();
-		this.userDetails = authService.getLoggedInUser();
+		//this.userDetails = authService.getLoggedInUser();
      }
 
   ngOnInit() {

@@ -8,17 +8,21 @@ import { AppRoutes } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { ProductModule } from './layouts/product/product.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrderSuccessComponent } from './layouts/product/order-success/order-success.component';
+import { MyOrdersComponent } from './layouts/product/my-orders/my-orders.component';
+import { AdminModule } from './admin/admin/admin.module';
 
 
 
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, OrderSuccessComponent, MyOrdersComponent],
   imports: [
       BrowserModule, 
       IndexModule,
       ProductModule,
+      AdminModule,
       SharedModule,
       UserModule,
       RouterModule.forRoot(AppRoutes),

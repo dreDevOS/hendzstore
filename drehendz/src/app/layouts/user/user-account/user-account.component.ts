@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../../auth/auth.service';
+import {AuthService} from '../../../shared/services/auth.service';
 import { User } from '../../../shared/models/user';
 
 @Component({
@@ -13,7 +13,7 @@ export class UserAccountComponent implements OnInit {
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
-    this.loggedUser = this.authService.getLoggedInUser();
+    //this.loggedUser = this.authService.getLoggedInUser();
   }
 
 }

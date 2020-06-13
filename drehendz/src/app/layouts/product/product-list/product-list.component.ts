@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../shared/models/product';
-import {AuthService} from '../../../auth/auth.service';
+import {AuthService} from '../../../shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { CategoryService } from 'src/app/shared/services/category.service';
 import { AngularFireDatabase } from 'angularfire2/database';

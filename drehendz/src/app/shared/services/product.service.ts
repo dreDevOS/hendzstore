@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList, AngularFireObject} from 'angularfire2/database';
 import {Product} from '../models/product';
-import {AuthService} from '../../auth/auth.service';
+import {AuthService} from './auth.service';
 import {ToastrService} from './toastr.service';
 import { ShoppingCartService } from './shopping-cart.service';
 
@@ -55,13 +55,13 @@ export class ProductService {
 
 
 
-    getUsersFavoriteProducts(){
-        const user = this.authService.getLoggedInUser();
-        this.favoriteProducts = this.db.list('favoriteProducts', 
-        (ref)  =>  ref.orderByChild('userId')
-        .equalTo(user.$key) );
-        return this.favoriteProducts;
-    }
+    // getUsersFavoriteProducts(){
+    //     const user = this.authService.getLoggedInUser();
+    //     this.favoriteProducts = this.db.list('favoriteProducts', 
+    //     (ref)  =>  ref.orderByChild('userId')
+    //     .equalTo(user.$key) );
+    //     return this.favoriteProducts;
+    // }
 
 
     addFavoriteProduct(data: Product): void {
