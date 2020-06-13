@@ -18,13 +18,15 @@ import { Category } from 'src/app/shared/models/category';
 })
 export class AddProductComponent {
   // product: Product = new Product();
- categories$;
+  categories$;
 
   constructor(categoryService: CategoryService) {
-    this.categories$ = categoryService.getCategories();
-    
-  }
+    this.categories$ = categoryService.getCategories().snapshotChanges();
 
+  }
+  save(product) {
+    console.log(product);
+  }
 
 
   ngOnInit() { }
