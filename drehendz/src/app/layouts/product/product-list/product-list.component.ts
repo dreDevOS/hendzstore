@@ -36,38 +36,38 @@ categories: Observable<any[]>;
      }
 
   ngOnInit() {
-    this.getAllProducts();
+   // this.getAllProducts();
 
   }
 
 
 
-  getAllProducts() {
-      this.loading = true;
-    const x = this.productService.getProducts ();
-  x.snapshotChanges().subscribe(
-    (product) => {this.loading =false;
-    this.productList = [];
-  product.forEach((element) => {const y = element.payload.toJSON();
-    y['$key'] = element.key;
-  this.productList.push(y as Product);
- });
-}
+//   getAllProducts() {
+//       this.loading = true;
+//     const x = this.productService.getProducts ();
+//   x.snapshotChanges().subscribe(
+//     (product) => {this.loading =false;
+//     this.productList = [];
+//   product.forEach((element) => {const y = element.payload.toJSON();
+//     y['$key'] = element.key;
+//   this.productList.push(y as Product);
+//  });
+// }
 
 
-  );
-  }
-  addFavorite(product: Product) {
-		this.productService.addFavoriteProduct(product);
-  }
-  addToCart(product: Product) {
-   //  this.cartService.addToCart(product);
-     this.productService.addToCart(product);
-  }
-  removeProduct(key: string) {
-    if(!confirm('are you sure you want to delete this product')) return;
-		this.productService.deleteProduct(key);
-  }
+  //);
+  //}
+  // addFavorite(product: Product) {
+	// 	this.productService.addFavoriteProduct(product);
+  // }
+  // addToCart(product: Product) {
+  //  //  this.cartService.addToCart(product);
+  //    this.productService.addToCart(product);
+  // }
+  // removeProduct(key: string) {
+  //   if(!confirm('are you sure you want to delete this product')) return;
+	// 	this.productService.deleteProduct(key);
+  // }
 
   
 

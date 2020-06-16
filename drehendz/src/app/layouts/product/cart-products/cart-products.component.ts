@@ -20,13 +20,13 @@ export class CartProductsComponent implements OnInit {
   constructor(private productService: ProductService, private cartService: ShoppingCartService) { }
 
   ngOnInit() {
-    this.getCartProduct();
+    // this.getCartProduct();
   }
-  removeCartProduct(product: Product) {
-    this.cartService.removeLocalCartProduct(product);
-    }
+  // removeCartProduct(product: Product) {
+  //   this.cartService.removeLocalCartProduct(product);
+  //   }
 
-    getCartProduct(){
-      this.cartProducts = this.productService.getLocalCartProducts();
-    }
+  //   getCartProduct(){
+  //     this.cartProducts = this.productService.getLocalCartProducts();
+  //   }
 }

@@ -20,18 +20,23 @@ import { AdminGaurd } from 'src/app/shared/services/admin-guard';
     CommonModule,
     RouterModule.forChild([
       {
+        path: 'admin-products/new',
+        component: AddProductComponent,
+        canActivate: [AuthGuard, AdminGaurd]
+        
+      },
+      {
+        path: 'admin-products/:id',
+        component: AddProductComponent,
+        canActivate: [AuthGuard, AdminGaurd]
+        
+      },
+      {
         path: 'admin-products',
         component: AdminProductsComponent,
         canActivate: [AuthGuard, AdminGaurd]
         
       },
-      {
-        path: 'add-product',
-        component: AddProductComponent,
-        canActivate: [AuthGuard, AdminGaurd]
-        
-      },
-      
       {
         path: 'admin-orders',
         component: AdminOrdersComponent,

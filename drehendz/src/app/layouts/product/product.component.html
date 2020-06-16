@@ -1,1 +1,22 @@
-<p>product works!</p>
+<div class="row">
+    <div class="col-3">
+  <product-filter [category]="category"></product-filter>
+    </div>
+    <div class="col">
+        <div class="row">
+            <ng-container *ngFor="let p of filteredProducts; let i = index">
+                <div class="col">
+                    <div class="card" style="width: 15rem;">
+                        <img [src]="imageUrl" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{p.title}}</h5>
+                            <p class="card-text">{{p.price}}</p>
+                            <a href="#" class="btn btn-primary">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="(i + 1)% 2 === 0 " class="w-100"></div>
+            </ng-container>
+        </div>
+    </div>
+</div>

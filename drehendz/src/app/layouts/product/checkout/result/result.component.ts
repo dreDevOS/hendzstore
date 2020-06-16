@@ -23,10 +23,10 @@ export class ResultComponent implements OnInit {
     document.getElementById('billingTab').style.display = 'none';
     document.getElementById('resultTab').style.display = 'block';
 
-    this.products = productService.getLocalCartProducts();
+  //  this.products = productService.getLocalCartProducts();
 
     this.products.forEach((product)  => {
-      this.totalPrice += product.productPrice;
+ //     this.totalPrice += product.productPrice;
 
     });
     this.date = Date.now();

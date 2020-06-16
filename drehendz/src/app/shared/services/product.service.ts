@@ -1,55 +1,69 @@
-import {Injectable} from '@angular/core';
-import {AngularFireDatabase, AngularFireList, AngularFireObject} from 'angularfire2/database';
-import {Product} from '../models/product';
-import {AuthService} from './auth.service';
-import {ToastrService} from './toastr.service';
-import { ShoppingCartService } from './shopping-cart.service';
+import { Injectable, OnInit } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { map } from 'rxjs/operators';
 
 
-@Injectable ()
-export class ProductService {
-  
-   
-    products: AngularFireList<Product>;
-    product: AngularFireObject<Product>;
 
-    favoriteProducts: AngularFireList<FavoriteProduct>;
-    cartProducts: AngularFireList<FavoriteProduct>
-  
-    navbarCartCount = 0;
-    navbarFavProdCount = 0;
+@Injectable()
+export class ProductService implements OnInit{
+
+
+    // products: AngularFireList<Product>;
+    // product: AngularFireObject<Product>;
+
+    // favoriteProducts: AngularFireList<FavoriteProduct>;
+    // cartProducts: AngularFireList<FavoriteProduct>
+
+    // navbarCartCount = 0;
+    // navbarFavProdCount = 0;
 
     constructor(
-        private db: AngularFireDatabase,
-        private authService: AuthService,
-        private toastrService: ToastrService,
-    )
-    {
-        this.calculateLocalFavProdCounts();
-        this.calculateLocalCartProdCounts();
+        private db: AngularFireDatabase) {
+        // this.calculateLocalFavProdCounts();
+        // this.calculateLocalCartProdCounts();
     }
 
-    getProducts () {
-        this.products = this.db.list('products');      
+  
+  ngOnInit(){
+      this.getAll();
+  }
+    create(product) {
+         return this.db.list('/productsnew').push(product);
+    }
+    getAll() {
+        return this.db.list('/products').snapshotChanges().pipe(map(changes => changes.map(c => ({ $key: c.payload.key, $value: c.payload.val()}))));
 
-        return this.products;
+    }
+    
+
+    get(productId){
+        return this.db.object('/products/id' + productId).snapshotChanges();
+
     }
 
-    createProduct(data: Product) {
-        this.products.push(data);
+    update(productId, product){
+        return this.db.object('/products/' + productId).update(product)
+
     }
-    getProductById(key: string) {
-        this.product = this.db.object('/products/' + key);
-        return this.product;
+    delete(productId){
+    return this.db.object('/products/' + productId).remove();
     }
 
-    updateProduct(data: Product) {
-        this.products.update(data.$key, data);
-    }
+    // createProduct(data: Product) {
+    //     this.products.push(data);
+    // }
+    // getProductById(key: string) {
+    //     this.product = this.db.object('/products/' + key);
+    //     return this.product;
+    // }
 
-    deleteProduct(key: string){
-        this.products.remove(key);
-    }
+    // updateProduct(data: Product) {
+    //     this.products.update(data.$key, data);
+    // }
+
+    // deleteProduct(key: string){
+    //     this.products.remove(key);
+    // }
 
 
 
@@ -64,92 +78,92 @@ export class ProductService {
     // }
 
 
-    addFavoriteProduct(data: Product): void {
-        let a: Product [];
-        a = JSON.parse(localStorage.getItem('avf_item')) || [];
-        a.push(data);
-          setTimeout(() => {
-          localStorage.setItem('avf_item', JSON.stringify(a));
-          this.calculateLocalFavProdCounts();
-        }, 1500);
-    }
+    //     addFavoriteProduct(data: Product): void {
+    //         let a: Product [];
+    //         a = JSON.parse(localStorage.getItem('avf_item')) || [];
+    //         a.push(data);
+    //           setTimeout(() => {
+    //           localStorage.setItem('avf_item', JSON.stringify(a));
+    //           this.calculateLocalFavProdCounts();
+    //         }, 1500);
+    //     }
 
-getLocalFavoriteProducts(): Product[] {
-    const products: Product [] = JSON.parse(localStorage.getItem('avf_item')) || [];
+    // getLocalFavoriteProducts(): Product[] {
+    //     const products: Product [] = JSON.parse(localStorage.getItem('avf_item')) || [];
 
-    return products;
+    //     return products;
+    // }
+
+    // removeFavorite(key: string){
+    //     this.favoriteProducts.remove(key);
+    // }
+
+    // removeLocalFavorite(product: Product) {
+    //     const products: Product[] = JSON.parse(localStorage.getItem('avf-item')) || [];
+
+    //     for (let i = 0; i < products.length;  i++) {
+    //         if (products[i].productId === product.productId) {
+    //             products.splice(i,1);
+    //             break;
+    //         }
+    //     }
+
+    //     localStorage.setItem('avf_item', JSON.stringify(products));
+
+    // this.calculateLocalFavProdCounts();
+    // }
+
+    // calculateLocalFavProdCounts() {
+    //     this.navbarFavProdCount = this.getLocalFavoriteProducts().length
+    // }
+
+
+    // addToCart(product: Product): void {
+    //     let a: Product[];
+
+    //    a= JSON.parse(localStorage.getItem('cartId')) || [];
+    //     a.push(product);
+
+    //     setTimeout(()   => {
+    //         localStorage.setItem('cartId', JSON.stringify(a));
+    //         this.calculateLocalCartProdCounts();
+
+    //     }, 500);
+
+
+    // }
+
+    //     getLocalCartProducts(): Product[] {
+    //         const products: Product [] = JSON.parse(localStorage.getItem('cartId')) || [];
+
+    //         return products;
+    //     }
+
+    //     calculateLocalCartProdCounts(){
+    //         this.navbarCartCount = this.getLocalCartProducts().length;
+    //     }
+
+    //     removeLocalCartProduct(product: Product) {
+    //         const products: Product[] = JSON.parse(localStorage.getItem('cartId'));
+    //          console.log(products);
+
+    //           for (let i = 0; i<products.length; i++) {
+    //            if (products [i].productId === product.productId){
+    //             products.splice(i, 1);
+    //             break;
+    //            }
+    //        }
+    //        localStorage.setItem('cartId', JSON.stringify(products));
+
+    // 		this.calculateLocalCartProdCounts();
+
+
+    //       }
+
 }
 
-removeFavorite(key: string){
-    this.favoriteProducts.remove(key);
-}
-
-removeLocalFavorite(product: Product) {
-    const products: Product[] = JSON.parse(localStorage.getItem('avf-item')) || [];
-
-    for (let i = 0; i < products.length;  i++) {
-        if (products[i].productId === product.productId) {
-            products.splice(i,1);
-            break;
-        }
-    }
-
-    localStorage.setItem('avf_item', JSON.stringify(products));
-
-this.calculateLocalFavProdCounts();
-}
-
-calculateLocalFavProdCounts() {
-    this.navbarFavProdCount = this.getLocalFavoriteProducts().length
-}
-
-
-addToCart(product: Product): void {
-    let a: Product[];
-
-   a= JSON.parse(localStorage.getItem('cartId')) || [];
-    a.push(product);
-    
-    setTimeout(()   => {
-        localStorage.setItem('cartId', JSON.stringify(a));
-        this.calculateLocalCartProdCounts();
-
-    }, 500);
-
-    
-}
-
-    getLocalCartProducts(): Product[] {
-        const products: Product [] = JSON.parse(localStorage.getItem('cartId')) || [];
-
-        return products;
-    }
-
-    calculateLocalCartProdCounts(){
-        this.navbarCartCount = this.getLocalCartProducts().length;
-    }
-
-    removeLocalCartProduct(product: Product) {
-        const products: Product[] = JSON.parse(localStorage.getItem('cartId'));
-         console.log(products);
-    
-          for (let i = 0; i<products.length; i++) {
-           if (products [i].productId === product.productId){
-            products.splice(i, 1);
-            break;
-           }
-       }
-       localStorage.setItem('cartId', JSON.stringify(products));
-
-		this.calculateLocalCartProdCounts();
-    
-    
-      }
-
-}
-
-export class FavoriteProduct {
-    product: Product;
-    productId: string;
-    userId: string;
-}
+// export class FavoriteProduct {
+//     product: Product;
+//     productId: string;
+//     userId: string;
+// }

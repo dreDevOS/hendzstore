@@ -18,14 +18,14 @@ export class FavoriteProductsComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.getFavoriteProduct();
+    // this.getFavoriteProduct();
   }
-getFavoriteProduct(){
-  this.favoriteProducts = this.productService.getLocalFavoriteProducts();
-}
-removeFavorite(product: Product) {
-  this.productService.removeLocalFavorite(product);
+// getFavoriteProduct(){
+//   this.favoriteProducts = this.productService.getLocalFavoriteProducts();
+// }
+// removeFavorite(product: Product) {
+//   this.productService.removeLocalFavorite(product);
 
-  this.getFavoriteProduct();
+  // this.getFavoriteProduct();
 }
-}
+

@@ -75,19 +75,19 @@ let result = await this.create();
   }
 
   // remove cart products from the same cart Id 
-  removeLocalCartProduct(product: Product) {
-    const products: Product[] = JSON.parse(localStorage.getItem('cartId'));
+  // removeLocalCartProduct(product: Product) {
+  //   const products: Product[] = JSON.parse(localStorage.getItem('cartId'));
 
-      for (let i = 0; i<products.length; i++) {
-       if (products [i].productId === product.productId) {
-        products.splice(i, 1);
-        break;
-       }
+  //     for (let i = 0; i<products.length; i++) {
+  //      if (products [i].productId === product.productId) {
+  //       products.splice(i, 1);
+  //       break;
+  //      }
             
-   }
-localStorage.setItem('cartId' , JSON.stringify(products));
- this.calculateLocalCartProdCounts();
+  //  }
+// localStorage.setItem('cartId' , JSON.stringify(products));
+//  this.calculateLocalCartProdCounts();
 
-  }
+//   }
      
 }

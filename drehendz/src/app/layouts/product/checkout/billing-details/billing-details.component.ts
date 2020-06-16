@@ -29,7 +29,7 @@ export class BillingDetailsComponent implements OnInit {
     document.getElementById('resultTab').style.display = 'none';
     
     this.userDetail = new UserDetail();
-		this.products = productService.getLocalCartProducts();
+	//	this.products = productService.getLocalCartProducts();
 	//	this.userDetails = authService.getLoggedInUser();
     }
 
@@ -44,7 +44,7 @@ export class BillingDetailsComponent implements OnInit {
 		const products = [];
 		this.products.forEach((product) => {
 			delete product['$key'];
-			totalPrice += product.productPrice;
+		//	totalPrice += product.productPrice;
 			products.push(product);
 		});
 

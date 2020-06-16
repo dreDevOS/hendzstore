@@ -37,26 +37,26 @@ export class BestProductComponent implements OnInit {
     };
 
 
-       this.getAllProducts();
+      //  this.getAllProducts();
   }
-  getAllProducts() {
-    this.loading = true;
-		const x = this.productService.getProducts();
-    x.snapshotChanges().subscribe((product) => 
-    {
-      this.loading = false;
-      this.bestProducts = [];
-      for (let i = 0; i < 4; i++) {
-        const y = product[i].payload.toJSON();
-        y['$key'] = product[i].key;
-        this.bestProducts.push(y as Product);
-      }
+  // getAllProducts() {
+  //   this.loading = true;
+	// 	const x = this.productService.getProducts();
+  //   x.snapshotChanges().subscribe((product) => 
+  //   {
+  //     this.loading = false;
+  //     this.bestProducts = [];
+  //     for (let i = 0; i < 4; i++) {
+  //       const y = product[i].payload.toJSON();
+  //       y['$key'] = product[i].key;
+  //       this.bestProducts.push(y as Product);
+  //     }
 
-    },
-    (error) =>{this.toasterService.error('Error while fetching Products', error);}
+  //   },
+  //   (error) =>{this.toasterService.error('Error while fetching Products', error);}
     
-    );
-    }
+  //   );
+  //   }
   
   
 

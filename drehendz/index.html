@@ -1,20 +1,28 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <script data-ad-client="ca-pub-3265939152107870" 
-  async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  
+  <script data-ad-client="ca-pub-3265939152107870" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
   <!-- <script data-ad-client="ca-pub-1304364114164634" 
   async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
 </script> -->
 
   <!--Global site tag (gtag.js)- Google Analytics  -->
- <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-N6ZL3VZ');</script>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+     })
+      (window, document, 'script', 'dataLayer', 'GTM-N6ZL3VZ');</script>
   <!-- End Google Tag Manager -->
 
 
@@ -26,24 +34,23 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
-  <meta http-equiv="Content-Secuity-Policy"
-  content="default-src *">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta http-equiv="Content-Secuity-Policy" content="default-src *">
 
   <style>
-      .splash {
-        position: absolute;
-        z-index: 2000;
-        background: white;
-        color: gray;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0
-      }
+    .splash {
+      position: absolute;
+      z-index: 2000;
+      background: white;
+      color: gray;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0
+    }
 
-      splash-title {
+    splash-title {
       text-align: center;
       max-width: 500px;
       margin: 15% auto;
@@ -57,43 +64,73 @@
     .color-line {
       border-radius: 4px 4px 0 0
     }
-</style>
+  </style>
 
-<script>
-  var global = global || window;
-  var Buffer = Buffer || [];
-  var process = process || {env:  {DEBUG: undefined},
-version: []
- };
+  <script>
+    var global = global || window;
+    var Buffer = Buffer || [];
+    var process = process || {
+      env: { DEBUG: undefined },
+      version: []
+    };
 
 
-</script>
+  </script>
 
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#1976d2">
- 
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
 </head>
 
-<body class="red-theme">  
-  
+<body>
+
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6ZL3VZ"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6ZL3VZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <app-root>
+  <!-- <style>
+
+    app-root{
+      color :aqua;
+    }
+  </style> -->
+
     <!--Show simple splash-->
-  <div class="splash">
-  <div class="color-line"></div>
-  <div class="splash-title">
-    <h1>drehendz</h1>
-    <img src="./assets/img/Spinner-1s-200px.svg" width="64" height="64" />
-  </div>
-</div>
-</app-root>
+    <!-- <div id="splash" style="display:none;"><img src="https://firebasestorage.googleapis.com/v0/b/drehendz.appspot.com/o/logo%2FIMG_0003.JPG?alt=media&token=418cf88f-f0c3-4e37-a791-48af5f2cf3a1" /></div>
+    <script>
+      // Slowly fade in image (5 seconds) and then slide it up (2 seconds).
+      $().ready(function () {
+        $("#splash").fadeIn(5000).slideUp(2000);
+      });
 
-  
-<noscript>Please enable Javascript to continue using this application</noscript>
+    </script> -->
+    <!-- <div class="splash">
+      <div class="color-line"></div>
+      <div class="splash-title">
+        <h1>drehendz</h1>
+        <img src="./assets/img/Spinner-1s-200px.svg" width="64" height="64" />
+      </div>
+    </div> -->
+  </app-root>
 
-<script src="runtime-es2015.js" type="module"></script><script src="polyfills-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="vendor-es2015.js" type="module"></script><script src="main-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es5.js" nomodule defer></script></body>
+
+  <noscript>Please enable Javascript to continue using this application</noscript>
+
+  <!-- <script src="runtime-es2015.js" type="module"></script>
+  <script src="polyfills-es2015.js" type="module"></script>
+  <script src="runtime-es5.js" nomodule defer></script>
+  <script src="polyfills-es5.js" nomodule defer></script>
+  <script src="styles-es2015.js" type="module"></script>
+  <script src="styles-es5.js" nomodule defer></script>
+  <script src="vendor-es2015.js" type="module"></script>
+  <script src="main-es2015.js" type="module"></script>
+  <script src="vendor-es5.js" nomodule defer></script>
+  <script src="main-es5.js" nomodule defer></script> -->
+
+</body>
+
 </html>

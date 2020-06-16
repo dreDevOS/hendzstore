@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/shared/services/category.service';
-import { Observable } from 'rxjs';
-import { Category } from 'src/app/shared/models/category';
-
+import { ProductService } from 'src/app/shared/services/product.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/take';
 
 
 // declare var $: any;
@@ -17,14 +17,31 @@ import { Category } from 'src/app/shared/models/category';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent {
-  // product: Product = new Product();
+  product = {};
   categories$;
-
-  constructor(categoryService: CategoryService) {
+  category: string;
+  id;
+ 
+  constructor(
+    private route: ActivatedRoute,
+    private categoryService: CategoryService,
+    private productService: ProductService,
+    private router: Router) {
     this.categories$ = categoryService.getCategories().snapshotChanges();
+    // console.log(categoryService.getCategories());
+
+    this.id = this.route.snapshot.queryParamMap.get('id');
+    if (this.id) this.productService
+      .get(this.id)
+      .take(1)
+      .subscribe(p => this.product = p);
 
   }
+  
   save(product) {
+    this.productService.create(product);
+    this.router.navigate(['/admin-products']);
+    //undefined
     console.log(product);
   }
 

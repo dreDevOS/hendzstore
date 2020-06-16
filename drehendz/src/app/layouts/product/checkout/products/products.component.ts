@@ -18,13 +18,13 @@ export class ProductsComponent implements OnInit {
   document.getElementById('billingTab').style.display = 'none';
   document.getElementById('resultTab').style.display = 'none';
 
-  const products = productService.getLocalCartProducts();
+ // const products = productService.getLocalCartProducts();
 
-  this.checkoutProducts = products;
+  // this.checkoutProducts = products;
 
-  products.forEach((product)  =>   {
-    this.totalPrice +=product.productPrice;
-  })
+  // products.forEach((product)  =>   {
+  //   this.totalPrice +=product.productPrice;
+  //})
 
   }
 

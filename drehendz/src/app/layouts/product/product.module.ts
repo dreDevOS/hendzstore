@@ -20,6 +20,7 @@ import { CartCalculatorComponent } from './cart-calculator/cart-calculator.compo
 import { CheckoutModule } from './checkout/checkout.module';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AddProductComponent } from 'src/app/admin/add-product/add-product.component';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
 
 
 
@@ -35,7 +36,8 @@ import { AddProductComponent } from 'src/app/admin/add-product/add-product.compo
 		FavoriteProductsComponent,
 		CartProductsComponent,
 		CartCalculatorComponent,
-		ShoppingCartComponent
+		ShoppingCartComponent,
+		ProductFilterComponent
 		
 		
 	],
