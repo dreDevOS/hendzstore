@@ -19,7 +19,7 @@ export class ProductComponent implements OnInit {
       
 
     productService.getAll().switchMap(products => {
-      this.products =products;
+    //  this.products =products;
       return route.queryParamMap;})
       .subscribe(params => {
       this.category = params.get('category');
