@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/shared/services/category.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import {AngularFirestore } from 'angularfire2/firestore'
 import 'rxjs/add/operator/take';
+import { map } from 'rxjs/operators';
 
 
 // declare var $: any;
@@ -26,8 +28,23 @@ export class AddProductComponent {
     private route: ActivatedRoute,
     private categoryService: CategoryService,
     private productService: ProductService,
-    private router: Router) {
-    this.categories$ = categoryService.getCategories().snapshotChanges();
+    private router: Router,
+    //private afs: AngularFirestore 
+      
+    ) {
+      // this.categories$= this.afs.collection("categories");
+       this.categories$ = this.categoryService.getCategories().snapshotChanges().map(actions => {
+         return actions.map(a => {
+           const data = a.payload.ref;
+           const id = a.payload.key;
+           return {id, ...data}
+         });
+       });
+        // //.map(actions => {
+        //   return actions.map(a => {
+            
+        //   } )
+        // })
     // console.log(categoryService.getCategories());
 
     this.id = this.route.snapshot.queryParamMap.get('id');
@@ -38,9 +55,9 @@ export class AddProductComponent {
 
   }
   
-  save(product) {
-    this.productService.create(product);
-    this.router.navigate(['/admin-products']);
+  save(product: any) {
+   // this.productService.create(product);
+    //this.router.navigate(['/admin-products']);
     //undefined
     console.log(product);
   }
