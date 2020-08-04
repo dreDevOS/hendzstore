@@ -7,28 +7,31 @@ import { Observable, Subscription } from 'rxjs';
   templateUrl: './admin-products.component.html',
   styleUrls: ['./admin-products.component.scss']
 })
-export class AdminProductsComponent implements OnInit {
-  products$;
-  // filteredProducts: any[];
-  // subscription: Subscription;
-
+export class AdminProductsComponent implements OnDestroy {
+  //products$;
+  filteredProducts: any[];
+  subscribe: Subscription;
+  products : any [];
 
   constructor(private productService: ProductService) {
-    this.products$ = this.productService.getAll();
+  this.subscribe = this.productService.get().subscribe(products => this.filteredProducts = this.products = products);
   }
+  
 
-  // filter(query: string) {
-  //   console.log(query);
-  //   this.filteredProducts = (query) ?
-  //     (this.products.filter(p => p.$key.toLowerCase().includes(query.toLowerCase()))) :
-  //     (this.products);
-  // }
-  //   ngOnDestroy() {
-  //  this.subscription.unsubscribe()
-  //   }
+  filter(queryString: string) {
+    if(queryString){
+      this.filteredProducts = this.products.filter(p => p.payload.val().title.toLowerCase().includes(queryString.toLocaleLowerCase()))
+    }
+    else{
+      this.filteredProducts = this.products;
+    }
+  
+    
+   
 
-
-  ngOnInit() { }
-
+  }
+  ngOnDestroy(): void {
+    this.subscribe.unsubscribe();
+  }
 
 }

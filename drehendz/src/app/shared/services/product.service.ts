@@ -25,45 +25,50 @@ export class ProductService implements OnInit{
 
   
   ngOnInit(){
-      this.getAll();
+//      this.getAll();
   }
     create(product) {
          return this.db.list('/productsnew').push(product);
     }
-    getAll() {
-        return this.db.list('/products').snapshotChanges().pipe(map(changes => changes.map(c => ({ $key: c.payload.key, $value: c.payload.val()}))));
 
-    }
+ get(){
+    return this.db.list('/productsnew').snapshotChanges();
+}
+getById(productID: string) {
+    return this.db.object('/productsnew/' + productID).valueChanges();
+  }
+
+  update(productID: string, product) {
+      return this.db.object('/productsnew/' + productID).update(product);
+  }
+
+  delete(productID: string){
+ return this.db.object('/prductsnew/' + productID).remove();       
+}
+    // getAll() {
+    //     return this.db.list('/products').snapshotChanges().pipe(map(changes => changes.map(c => ({ $key: c.payload.key, $value: c.payload.val()}))));
+
+    // }
     
 
-    get(productId){
-        return this.db.object('/products/id' + productId).snapshotChanges();
+    // get(productId){
+    //     return this.db.object('/products/id' + productId).snapshotChanges();
 
-    }
+    // }
 
-    update(productId, product){
-        return this.db.object('/products/' + productId).update(product)
 
-    }
-    delete(productId){
-    return this.db.object('/products/' + productId).remove();
-    }
+
+  // update(productId, product){
+    //     return this.db.object('/products/' + productId).update(product)
+
+    // }
 
     // createProduct(data: Product) {
     //     this.products.push(data);
     // }
-    // getProductById(key: string) {
-    //     this.product = this.db.object('/products/' + key);
-    //     return this.product;
-    // }
+   
 
-    // updateProduct(data: Product) {
-    //     this.products.update(data.$key, data);
-    // }
-
-    // deleteProduct(key: string){
-    //     this.products.remove(key);
-    // }
+    
 
 
 

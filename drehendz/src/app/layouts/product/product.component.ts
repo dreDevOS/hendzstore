@@ -18,15 +18,15 @@ export class ProductComponent implements OnInit {
     private productService: ProductService) {
       
 
-    productService.getAll().switchMap(products => {
-    //  this.products =products;
-      return route.queryParamMap;})
-      .subscribe(params => {
-      this.category = params.get('category');
-       this.filteredProducts = (this.category) ?
-       this.products.filter(p => p.category === this.category) :
-       this.products;
-    });
+    // productService.getAll().switchMap(products => {
+    // //  this.products =products;
+    //   return route.queryParamMap;})
+    //   .subscribe(params => {
+    //   this.category = params.get('category');
+    //    this.filteredProducts = (this.category) ?
+    //    this.products.filter(p => p.category === this.category) :
+    //    this.products;
+    // });
 
    
 

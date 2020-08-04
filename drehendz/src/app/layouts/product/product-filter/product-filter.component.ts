@@ -11,7 +11,7 @@ export class ProductFilterComponent implements OnInit {
   @Input ('category') category;
 
   constructor(catergoryService: CategoryService) { 
-    this.categories$ = catergoryService.getCategories().snapshotChanges();
+    this.categories$ = catergoryService.getCategories();//.snapshotChanges();
 
   }
 

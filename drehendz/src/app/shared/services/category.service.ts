@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable({
 
@@ -18,7 +16,7 @@ export class CategoryService {
   
 
 getCategories(){
- return this.db.list('/categories');
+ return this.db.list('/categories').valueChanges();
 
  
 
