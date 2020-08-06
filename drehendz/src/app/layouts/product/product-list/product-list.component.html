@@ -1,4 +1,26 @@
-<br>
+
+
+
+   
+      <div class="card" style="width: 18rem;" *ngFor="let p of filteredProducts">
+        <img [src]="p.payload.val().imageUrl" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{p.payload.val().title}}</h5>
+          <h5 class="card-title">{{p.payload.val().category}}</h5>
+          <p class="card-text">{{p.payload.val().price | currency: 'JMD': true}}</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary"> Add to cart</button>
+        </div>
+      </div>
+
+    
+  
+
+
+
+
+<!-- <br>
 <div class="container">
     <div class="row" *ngIf="authService.isAdmin() ">
         <div class="col-sm">
@@ -29,13 +51,13 @@
        <div class="container">
            <app-card-loader [loop]="3" [height]="800" *ngIf="loading"></app-card-loader>
            <div class="row" *ngIf="!loading">
-               <!--List of Products-->
+               List of Products
                <div class="col-sm-4 mb-2" *ngFor="let product of productList | filterByBrand: selectedBrand | paginate: { itemsPerPage: 15, currentPage: page } " >
                    <div class="item">
                        <div class="mb-r">
-                           <!--Card-->
+                           Card
                            <div class="card card-cascade wider" >
-                               <!--Card Image-->
+                               Card Image
                                <a [routerLink]="['/products/product', product.$key]">
                             <div class="view overlay hm-white-slight">
                                 <img [src]="product.productImageUrl" class="img-fluid" alt="" width="360px" height="640px">
@@ -46,10 +68,10 @@
                                     <div class="mask waves-effect waves-light" mdbRippleRadius></div>
                             </a>
 
-                            <!--Card Image-->
-                            <!--Card content-->
+                            Card Image
+                            Card content
                             <div class="card-body text-center no-padding">
-                                <!--Catergory & Title-->
+                                Catergory & Title
                                 <a class="text-muted">
                                   <h5>{{ product.productCategory }}</h5>
                                 </a>
@@ -60,11 +82,11 @@
                                     </strong>
                                 </p>
 
-                                <!--Description-->
+                                <Description
                                 <p class="card-text">
                                   {{ product.productDescription }}
                                 </p>
-                                    <!--Card footer-->
+                                    Card footer
                                     <div class="card-footer">
                                       <span class="left">$ {{ product.productPrice }}</span>
                                         <span class="right">
@@ -83,14 +105,14 @@
                                     </div>
 
                             </div>
-                            <!--/.Card content-->
+                            Card content
                            </div>
-                           <!--/.Card-->
+                           Card
                        </div>
                    </div>
                </div> 
            </div>
-           <!--Pagination-->
+           Pagination
            <div class="text-center mt-3">
                 <pagination-controls (pageChange)="page = $event"></pagination-controls>
            </div>
@@ -99,4 +121,4 @@
              </div>
     </div>
 </div>
-<app-add-product></app-add-product>
+<app-add-product></app-add-product> -->

@@ -11,13 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderSuccessComponent } from './layouts/product/order-success/order-success.component';
 import { MyOrdersComponent } from './layouts/product/my-orders/my-orders.component';
 import { AdminModule } from './admin/admin/admin.module';
+import { ProductListComponent } from './layouts/product/product-list/product-list.component';
 
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, OrderSuccessComponent, MyOrdersComponent],
+  declarations: [AppComponent, OrderSuccessComponent, MyOrdersComponent, ProductListComponent],
   imports: [
       BrowserModule, 
       IndexModule,

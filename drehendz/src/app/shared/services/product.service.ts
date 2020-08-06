@@ -28,11 +28,11 @@ export class ProductService implements OnInit{
 //      this.getAll();
   }
     create(product) {
-         return this.db.list('/productsnew').push(product);
+         return this.db.list('/productsnew/').push(product);
     }
 
  get(){
-    return this.db.list('/productsnew').snapshotChanges();
+    return this.db.list('/productsnew/').snapshotChanges();
 }
 getById(productID: string) {
     return this.db.object('/productsnew/' + productID).valueChanges();

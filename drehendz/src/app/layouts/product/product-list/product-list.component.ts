@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../../shared/models/product';
 import {AuthService} from '../../../shared/services/auth.service';
 import { ProductService } from 'src/app/shared/services/product.service';
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 
 
 @Component({
-  selector: 'app-product-list',
+  selector: 'product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
@@ -23,6 +23,8 @@ brands = ['All', 'Boohoo', 'Charlotte Russe', 'Delicacy']
 selectedBrand: 'All';
 page= 1;
 categories: Observable<any[]>;
+@Input('product') product: any;
+
 
   constructor(
     private productService: ProductService,
@@ -34,7 +36,6 @@ categories: Observable<any[]>;
       
       
      }
-
   ngOnInit() {
    // this.getAllProducts();
 
