@@ -1,10 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../../../shared/models/product';
-import {AuthService} from '../../../shared/services/auth.service';
-import { ProductService } from 'src/app/shared/services/product.service';
-import { CategoryService } from 'src/app/shared/services/category.service';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs';
+import{ShoppingCartService} from '../../../shared/services/shopping-cart.service'
 
 
 
@@ -16,31 +11,22 @@ import { Observable } from 'rxjs';
 })
 
 
-export class ProductListComponent implements OnInit {
-productList: Product [];
-loading = false;
-brands = ['All', 'Boohoo', 'Charlotte Russe', 'Delicacy']
-selectedBrand: 'All';
-page= 1;
-categories: Observable<any[]>;
-@Input('product') product: any;
-
+export class ProductListComponent  {
+// productList: Product [];
+// loading = false;
+// brands = ['All', 'Boohoo', 'Charlotte Russe', 'Delicacy']
+// selectedBrand: 'All';
+// page= 1;
+// categories: Observable<any[]>;
+@Input('product') product: any = [];
+@Input('shoppingCart') shoppingCart;
 
   constructor(
-    private productService: ProductService,
-    public authService: AuthService,
-    public categoryService: CategoryService,
-    private db: AngularFireDatabase
-    )
-     { 
-      
-      
-     }
-  ngOnInit() {
-   // this.getAllProducts();
-
+    private cartService: ShoppingCartService ){ }
+  
+  addToCart(){
+    this.cartService.addToCart(this.product);
   }
-
 
 
 //   getAllProducts() {
