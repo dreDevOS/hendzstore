@@ -8,12 +8,12 @@ import {ProductService} from '../../../shared/services/product.service';
   styleUrls: ['./favorite-products.component.scss']
 })
 export class FavoriteProductsComponent implements OnInit {
-  favoriteProducts: Product [];
-  showDataNotFound = true;
+  // favoriteProducts: Product [];
+  // showDataNotFound = true;
 
-  //Not Found Message
-  messageTitle = 'No Favorite Products Found';
-  messageDescription = 'Please, choose your favorite products';
+  // //Not Found Message
+  // messageTitle = 'No Favorite Products Found';
+  // messageDescription = 'Please, choose your favorite products';
 
   constructor(private productService: ProductService) { }
 

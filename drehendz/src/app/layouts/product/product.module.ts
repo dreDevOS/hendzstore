@@ -30,7 +30,7 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
 	[
 		ProductComponent,
 		BestProductComponent,
-		//ProductListComponent,
+		ProductListComponent,
 	    AddProductComponent,
 		ProductDetailComponent,
 		FavoriteProductsComponent,
@@ -41,6 +41,6 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
 		
 		
 	],
-    exports: [BestProductComponent]
+    exports: [BestProductComponent, ProductListComponent]
 })
 export class ProductModule {}
