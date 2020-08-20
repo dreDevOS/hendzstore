@@ -6,8 +6,17 @@
           <p class="card-text">{{product.payload.val().price | currency: 'JMD': true}}</p>
         </div>
         <div class="card-footer">
-          <button  (click)="addToCart()" class="btn btn-primary"> Add to cart</button>
+          <button *ngIf="getQuantity() === 0; else updateQuantity"
+           (click)="addToCart()" class="btn btn-primary"> Add to cart</button>
         </div>
+        <ng-template #updateQuantity>
+       <div class="row no-gutters">
+         <div class="col-2"(click)="addToCart()" class="btn btn-primary">+</div>
+         <div class="col text-center"> {{getQuantity() }} in cart</div>
+         <div class="col-2"(click)="removeFromCart()" class="btn btn-primary">-</div>
+       </div>
+
+        </ng-template>
       </div>
 
 
