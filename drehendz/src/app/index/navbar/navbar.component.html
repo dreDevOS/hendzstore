@@ -15,9 +15,9 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="javascript:;;" [routerLink]="['/products/cart-items']">
+        <a class="nav-link" [routerLink]="['/products/cart-items']">
           <i class="fa fa-shopping-cart">
-            <!-- <span class="mt-2"> {{productService.navbarCartCount}}</span> -->
+            <span class="badge badge-warning">  {{shoppingCartCouter}} </span>
           </i>
         </a>
       </li>
