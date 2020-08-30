@@ -3,7 +3,7 @@
         <div class="card-body">
           <h5 class="card-title">{{product.payload.val().title}}</h5>
           <h5 class="card-title">{{product.payload.val().category}}</h5>
-          <p class="card-text">{{product.payload.val().price | currency: 'JMD': true}}</p>
+          <p class="card-text">{{product.payload.val().price | currency: symbol-narrow}}</p>
         </div>
         <div class="card-footer">
           <button *ngIf="getQuantity() === 0; else updateQuantity"

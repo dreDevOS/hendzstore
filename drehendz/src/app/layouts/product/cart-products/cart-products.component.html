@@ -1,8 +1,42 @@
-<br>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>item</th>
+      <th>quantity</th>
+      <th>price</th>
+    </tr>
+  </thead>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <br>
 <div class="container" *ngIf="cartProducts.length>0">
     <div class="row">
 
-        <!--List Products-->
+        List Product
         <div class="col-8">
             <div class="row">
                 <div class="col-4" *ngFor="let product of cartProducts">
@@ -11,10 +45,10 @@
 
 
 
-                       <!--Card-->
+                       Card
                        <div class="card card-cascade wider">
 
-<!--Card Image-->
+Card Image
       <a [routerLink]="['/products/product', product.$key]">
     
        <div class="view overlat hm-white-slight">
@@ -26,7 +60,7 @@
     </a>  
 
 
-    <!--Card content-->
+    Card content
     <div class="card-body text-center no-padding">
             <a class="text-muted">
                     <h5>{{ product.productCategory }}</h5>
@@ -37,7 +71,7 @@
                         </strong>
                       </h5>
 
-                      <!--Description-->
+                      Description
                       <p class="card-text">{{ product.productDescription }}
                         </p>
 
@@ -70,4 +104,4 @@
 </div>
 <div class="container" *ngIf="cartProducts.length === 0">
     <app-no-products-found [title]="messageTitle" [description]="messageDescription"></app-no-products-found>
-  </div>
+  </div> -->
