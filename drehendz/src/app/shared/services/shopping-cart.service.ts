@@ -56,13 +56,13 @@ export class ShoppingCartService {
       else {
         items$.update({
           product: {
-
             title: product.payload.val().title,
             price: product.payload.val().price,
             category: product.payload.val().category,
             imageUrl: product.payload.val().imageUrl
-          }
-          , quantity: 1
+          },
+
+          quantity:(item.payload.exists() ? item.payload.val()['quantity'] : 0) + 1
         });
       }
     })

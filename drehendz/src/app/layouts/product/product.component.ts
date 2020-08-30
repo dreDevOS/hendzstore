@@ -13,8 +13,8 @@ import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.servi
 })
 export class ProductComponent implements OnInit, OnDestroy {
 
- 
-   products: any[] = [];
+
+  products: any[] = [];
   filteredProducts: any[] = [];
   categories$;
   category = '';
@@ -25,36 +25,19 @@ export class ProductComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private productService: ProductService,
     private cartService: ShoppingCartService
-    
+
   ) {
     this.subscription = this.productService
       .get().switchMap(products => {
         this.products = products;
         return this.route.queryParamMap;
       })
-    // read values of query string
-    .subscribe(params => {
-      this.category = params.get('category');
-      this.filteredProducts = (this.category) ?
-        this.products.filter(p => p.payload.val().category === this.category) : this.products;
-    })
-
-    // productService.get().subscribe(products => {
-    //   this.products = products;
-    // })
-    //this.categories$ = categoryService.getCategories();
-    // productService.getAll().switchMap(products => {
-    // //  this.products =products;
-    //   return route.queryParamMap;})
-    //   .subscribe(params => {
-    //   this.category = params.get('category');
-    //    this.filteredProducts = (this.category) ?
-    //    this.products.filter(p => p.category === this.category) :
-    //    this.products;
-    // });
-
-
-
+      // read values of query string
+      .subscribe(params => {
+        this.category = params.get('category');
+        this.filteredProducts = (this.category) ?
+          this.products.filter(p => p.payload.val().category === this.category) : this.products;
+      })
 
   }
   ngOnDestroy(): void {
@@ -63,13 +46,9 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
 
-    (await (await this.cartService.getcart()).valueChanges().subscribe( cart => {
-      this.cart = cart;
-      console.log(cart)
-    }) )
-    // this.productService.get().subscribe(products => {
-    //   this.products = products
-    // });
+    this.subscription = (await this.cartService.getcart()).snapshotChanges().subscribe(cart => { this.cart = cart.payload.val();
+       //console.log(cart) 
+      })
 
   }
 
