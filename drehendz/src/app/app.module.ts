@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderSuccessComponent } from './layouts/product/order-success/order-success.component';
 import { MyOrdersComponent } from './layouts/product/my-orders/my-orders.component';
 import { AdminModule } from './admin/admin/admin.module';
+import { FooterComponent } from './index/footer/footer.component';
 
 
 

@@ -1,12 +1,14 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" routerLink="/"><img src="../../../assets/logo_img/logo_official.png"></a>
+  <div class="d-flex flex-grow-1">
+  <span class="w-100 d-lg-none d-block"><img src="../../../assets/logo_img/logo_official.png"></span>
+  <a class="navbar-brand d-none d-lg-inline-block" routerLink="/"><h4>drehendz</h4> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
     aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
+</div>
+  <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarsExampleDefault">
+    <ul class="navbar-nav ml-auto flex-nowrap">
       <li class="nav-item">
         <a class="nav-link" href="javascript:;;" [routerLink]="['/products/favorite-products']">
           <i class="fa fa-heart">

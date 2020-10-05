@@ -2,12 +2,14 @@
   <div class="col-3">
     <product-filter [category]="category"></product-filter>
   </div>
+
   <div class="col">
-    <ng-container class="container" *ngFor="let p of filteredProducts; let i = index">
-      <div class="row">
-        <product-list [product]="p"  [shoppingCart]="cart" ></product-list>
-      </div>
-      <div *ngIf="(i+1)% 2 ===0 " class="w-100" ></div>
-    </ng-container>
+    <div class="row">
+      <ng-container class="container" *ngFor="let p of filteredProducts; let i = index">
+        <div class="col">
+          <product-list [product]="p" [shoppingCart]="cart"></product-list>
+        </div>
+        <div *ngIf="( i + 1)% 2 === 0" class="w-100"></div>
+      </ng-container>
+    </div>
   </div>
-</div>
