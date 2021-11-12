@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@angular-devkit/build-angular": "^13.0.2",
+    "dotjs": "^0.2.0",
+    "rxjs": "^7.4.0",
+    "typescript": "^4.4.4"
+  }
+}
