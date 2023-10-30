@@ -1,7 +1,4 @@
 # hendzstore
-eCommerce Web Application
-
-Description
 
 eCommerce Web Application
 
